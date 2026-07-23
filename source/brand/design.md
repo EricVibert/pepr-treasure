@@ -4,7 +4,7 @@ How we look, everywhere: the website, the decks, any image we produce. The AI re
 
 ## Philosophy
 
-TODO: one paragraph naming the feel in plain words (examples from real projects: "warm, analog, intimate, gallery-grade"; "institutional but alive"; "so plain it disappears"). Every visual decision should be defensible against this paragraph.
+**Moderne et institutionnel, charte AP-HP déclinée en vert.** Le site reprend les codes de la charte AP-HP — beaucoup de blanc, typographie sans-serif, structure claire, un rouge « cœur » en accent — mais remplace le bleu AP-HP par un **vert institutionnel** comme couleur dominante. Il doit inspirer confiance et rigueur au premier regard, sans être froid ni administratif. Toute décision visuelle doit être défendable contre cette phrase : *sérieux, clair, institutionnel, vert.* (Direction validée par le propriétaire le 2026-07-23.)
 
 ## Tokens
 

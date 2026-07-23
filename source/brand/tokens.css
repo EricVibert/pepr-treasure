@@ -2,21 +2,30 @@
    The site imports this file; decks copy the current values into their inline
    styles at build time (decks must stay self-contained single files).
    Rules for editing: change values freely, rename carefully (search all uses),
-   and never let a hex value or font name live anywhere else. */
+   and never let a hex value or font name live anywhere else.
+
+   CHARTE AP-HP DÉCLINÉE EN VERT (2026-07-23) — style moderne et institutionnel
+   inspiré de la charte AP-HP (beaucoup de blanc, sans-serif, rouge « cœur » en
+   accent), mais avec le VERT comme couleur dominante à la place du bleu.
+   Ne toucher que ce fichier pour re-thémer. */
 
 :root {
-  /* Color. Sober research palette (deep blue), pending the full setup session. */
-  --color-bg: #f7f8fb;          /* page background */
-  --color-surface: #ffffff;     /* cards, raised areas */
-  --color-ink: #101828;         /* body text */
-  --color-muted: #5b6472;       /* secondary text, captions */
-  --color-line: #dce0e8;        /* hairlines, borders */
-  --color-accent: #0b2e5c;      /* links, emphasis, primary buttons */
-  --color-accent-ink: #f7f8fb;  /* text on accent */
+  /* Color — vert institutionnel dominant + rouge d'accent, sur blanc. */
+  --color-bg: #f4faf6;          /* fond de page, blanc verdâtre */
+  --color-surface: #ffffff;     /* cartes, zones surélevées */
+  --color-ink: #16241d;         /* texte courant, ardoise très foncée verdâtre */
+  --color-muted: #566b60;       /* texte secondaire, légendes (contraste AA sur bg) */
+  --color-line: #d5e6db;        /* filets, bordures */
+  --color-accent: #157347;      /* liens, titres, boutons primaires (vert institutionnel) */
+  --color-accent-dark: #0f5a37; /* survol, états actifs (vert foncé) */
+  --color-accent-ink: #ffffff;  /* texte sur accent */
+  --color-accent-2: #d0021b;    /* rouge : intertitres, accents, chiffres, puces */
+  --color-accent-2-soft: #fdeced;/* fond rouge très clair (encadrés) */
+  --color-accent-soft: #e4f3ea; /* fond vert très clair (sections, cartes douces) */
 
-  /* Type */
-  --font-display: ui-serif, Georgia, serif;
-  --font-text: system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* Type — sans-serif partout (charte AP-HP). Pas de webfont : pile système. */
+  --font-display: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-text: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* Type scale (rem). One scale for the whole site. */
   --text-sm: 0.875rem;
@@ -24,6 +33,7 @@
   --text-lg: 1.375rem;
   --text-xl: 1.875rem;
   --text-2xl: 2.75rem;
+  --text-3xl: 3.5rem;
 
   /* Spacing scale (rem) */
   --space-1: 0.25rem;
@@ -34,6 +44,8 @@
   --space-6: 8rem;
 
   /* Shape and layout */
-  --radius: 4px;
+  --radius: 6px;
+  --radius-lg: 12px;
   --max-width: 68rem;
+  --shadow: 0 1px 2px rgba(16, 34, 47, 0.04), 0 8px 24px rgba(16, 34, 47, 0.06);
 }
