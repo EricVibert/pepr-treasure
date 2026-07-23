@@ -1,35 +1,60 @@
 ---
-// Placeholder home page. The setup session replaces this with the real one.
+// Page d'accueil — version d'amorçage. Le titre est en place ; le reste du
+// site sera construit lors d'une prochaine session de setup.
 import Base from '../layouts/Base.astro';
 ---
 
-<Base title="Not set up yet" description="This site is waiting for its first setup session.">
-  <section class="placeholder">
-    <h1>Almost there</h1>
-    <p>
-      This site hasn't had its setup session yet. Open this folder in a terminal,
-      run <code>claude</code>, and say: <strong>“set up my site”</strong>.
+<Base
+  title="PEPR TREASURE"
+  description="PEPR TREASURE — Programme et Équipements Prioritaires de Recherche, France 2030."
+>
+  <section class="hero">
+    <p class="eyebrow">France&nbsp;2030 · Programme et Équipements Prioritaires de Recherche</p>
+    <h1>PEPR&nbsp;TREASURE</h1>
+    <p class="lede">
+      Un programme de recherche au service de la connaissance et de l'innovation.
+      Le site complet arrive prochainement.
     </p>
-    <p>
-      You'll be interviewed about what the site is for, your content will be
-      ingested (drop files in <code>source/inbox/</code>, or point at your old
-      site), and a first version will be built with you, live.
-    </p>
+    <p class="soon"><span class="dot" aria-hidden="true"></span> Site en construction</p>
   </section>
 </Base>
 
 <style>
-  .placeholder {
-    max-width: 44rem;
+  .hero {
+    max-width: 46rem;
+    padding: var(--space-4) 0;
   }
-  .placeholder h1 {
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-accent);
     margin-bottom: var(--space-4);
   }
-  .placeholder code {
-    background: var(--color-surface);
-    border: 1px solid var(--color-line);
-    border-radius: var(--radius);
-    padding: 0 var(--space-1);
-    font-size: 0.95em;
+  .hero h1 {
+    font-size: clamp(3rem, 9vw, 5.5rem);
+    letter-spacing: -0.02em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-3);
+  }
+  .lede {
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+    max-width: 34rem;
+  }
+  .soon {
+    margin-top: var(--space-4);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+  .dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-accent);
   }
 </style>
