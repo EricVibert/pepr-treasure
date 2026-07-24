@@ -57,7 +57,11 @@ const nav: { href: string; label: string }[] = [
       <slot />
     </main>
     <footer class="site-footer">
-      <p>© {new Date().getFullYear()} {siteName}</p>
+      <div class="funders">
+        <span class="funders-label">Avec le soutien de</span>
+        <img class="funders-logo" src="/france-2030.svg" alt="France 2030" width="120" height="116" />
+      </div>
+      <p class="copyright">© {new Date().getFullYear()} {siteName}</p>
     </footer>
   </body>
 </html>

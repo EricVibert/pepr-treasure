@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 330" role="img" aria-label="France 2030">
+  <title>France 2030</title>
+  <!-- Anneau bleu ouvert (deux coupures) -->
+  <circle cx="170" cy="165" r="150" fill="none" stroke="#001a70" stroke-width="15"
+          stroke-linecap="round" stroke-dasharray="378 78 388 98"
+          transform="rotate(32 170 165)" />
+  <!-- FRANCE -->
+  <text x="170" y="158" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif" font-weight="800"
+        font-size="62" letter-spacing="1" fill="#001a70">FRANCE</text>
+  <!-- 2030 -->
+  <text x="170" y="232" text-anchor="middle"
+        font-family="Arial, Helvetica, sans-serif" font-weight="800"
+        font-size="78" letter-spacing="2" fill="#e2001a">2030</text>
+</svg>
