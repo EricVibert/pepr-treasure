@@ -1,0 +1,149 @@
+---
+// Page Work Package 2 — Parcours du greffon et perfusion d'organes.
+// Contenu fourni par le propriétaire (2026-07-24).
+import Base from '../layouts/Base.astro';
+
+const objectifs = [
+  {
+    titre: 'Cartographier les machines de perfusion',
+    texte: 'Point de départ du WP2 : dresser une cartographie de l’utilisation des machines de perfusion en transplantation du foie, du cœur, du poumon et du rein.',
+  },
+  {
+    titre: 'Améliorer le parcours du greffon',
+    texte: 'Identifier les améliorations possibles entre le moment du prélèvement de l’organe et son implantation chez le receveur.',
+  },
+  {
+    titre: 'Mieux apparier donneur et receveur',
+    texte: 'Travailler à une meilleure adéquation morphologique entre les organes du donneur et du receveur.',
+  },
+  {
+    titre: 'Évaluer la viabilité des greffons « limite »',
+    texte: 'Développer de nouvelles méthodes d’évaluation de la viabilité des organes sur machines de perfusion normothermique oxygénée, afin de mieux décider de l’utilisation des greffons considérés comme « limite ».',
+  },
+];
+---
+
+<Base
+  title="Work Package 2 — Parcours du greffon et perfusion d’organes"
+  description="WP2 du PEPR TREASURE : machines de perfusion en transplantation (foie, cœur, poumon, rein) et amélioration du parcours du greffon, du prélèvement à l’implantation."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE · Work Package 2</p>
+    <h1>Parcours du greffon et perfusion d’organes</h1>
+    <p class="lede">
+      Le WP2 se concentre sur les <strong>machines de perfusion</strong> en
+      transplantation d’organes et sur le <strong>parcours du greffon</strong> —
+      tout ce qui se joue entre le prélèvement de l’organe et son implantation
+      chez le receveur.
+    </p>
+    <ul class="chips" aria-label="Organes concernés">
+      <li>Foie</li><li>Cœur</li><li>Poumon</li><li>Rein</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Objectifs du Work Package 2</h2>
+    <ul class="objectifs">
+      {objectifs.map((o) => (
+        <li>
+          <h3>{o.titre}</h3>
+          <p>{o.texte}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <p class="soon"><span class="dot" aria-hidden="true"></span> Page en construction — logo et détails du WP2 à venir.</p>
+</Base>
+
+<style>
+  .hero {
+    max-width: 48rem;
+    padding: var(--space-4) 0 var(--space-3);
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-2);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.01em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-3);
+  }
+  .lede {
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+    max-width: 40rem;
+  }
+  .lede strong { color: var(--color-ink); }
+
+  .chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+  .chips li {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .block {
+    max-width: 52rem;
+    margin-top: var(--space-5);
+  }
+  .block h2 {
+    color: var(--color-accent);
+    margin-bottom: var(--space-4);
+  }
+
+  .objectifs {
+    list-style: none;
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .objectifs li {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-top: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .objectifs h3 {
+    color: var(--color-ink);
+    margin-bottom: var(--space-2);
+  }
+  .objectifs p {
+    color: var(--color-muted);
+    font-size: var(--text-base);
+  }
+  @media (max-width: 640px) {
+    .objectifs { grid-template-columns: 1fr; }
+  }
+
+  .soon {
+    margin-top: var(--space-5);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+  .dot {
+    width: 0.5rem; height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+  }
+</style>
