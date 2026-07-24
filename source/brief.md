@@ -6,17 +6,17 @@
 
 ## Who
 
-- **Owner**: TODO (name, what they do, how technical they are)
-- **The project**: TODO (one paragraph: what this site/brand is, for whom)
-- **Audience**: TODO (who visits, in what situation, deciding what)
+- **Owner**: Pr Éric Vibert — chirurgien, directeur chirurgical de la transplantation hépatique au Centre Hépato-Biliaire (Hôpital Paul-Brousse, AP-HP), co-porteur du PEPR TREASURE (avec Agnès Audier, Alexandre Loupy, François Pattou). Non technique côté web.
+- **The project**: **PEPR TREASURE** (*Transplantation, REgeneration And preservation of OrganS*) — Programme d'Équipement Prioritaire de Recherche dédié à la transplantation d'organes, financé par France 2030 et piloté par l'Agence de programmes de recherche en Santé au sein de l'INSERM (2025-2030). Approche « tous organes » (rein, foie, cœur, poumon, trachée, îlots, tissus composites) qui fédère toute la communauté française de la transplantation. Organisé en work packages (WP1 données augmentées, WP2 parcours du greffon/perfusion, WP3 cellules et tissus, WP4 immuno-monitoring, etc.).
+- **Audience**: communauté de la transplantation (chercheurs, cliniciens, ingénieurs), institutions et tutelles (INSERM, France 2030), partenaires industriels (médicament, MedTech), sociétés savantes et associations de patients.
 
 ## The site
 
-- **Domain**: TODO
-- **Live URL**: TODO (the .pages.dev URL until the domain is connected)
-- **Languages**: TODO (list them; the first one listed is the default)
-- **Pages**: TODO (list current pages and what each is for)
-- **Collections**: TODO (any repeated content: gallery, products, projects, events; where its data file lives)
+- **Domain**: TODO (pour l'instant sur pages.dev)
+- **Live URL**: https://pepr-treasure.pages.dev (Cloudflare Pages ; branche de production = `main`)
+- **Languages**: français (défaut). Anglais à ajouter plus tard.
+- **Pages**: Accueil (`site/src/pages/index.astro`) — présentation synthétique du programme (acronyme, ambition, approche unifiée « tous organes », axes d'innovation). Le reste du site est à construire.
+- **Collections**: candidates — work packages, équipe (co-porteurs + leads par organe), partenaires, actualités. À décider en construisant.
 
 ## Derivatives
 
