@@ -4,23 +4,24 @@
    Rules for editing: change values freely, rename carefully (search all uses),
    and never let a hex value or font name live anywhere else.
 
-   CHARTE AP-HP DÉCLINÉE EN VERT (2026-07-23) — style moderne et institutionnel
-   inspiré de la charte AP-HP (beaucoup de blanc, sans-serif, rouge « cœur » en
-   accent), mais avec le VERT comme couleur dominante à la place du bleu.
+   STYLE MODERNE & INSTITUTIONNEL, TOUT EN VERT (2026-07-24) — inspiré de la charte
+   AP-HP (beaucoup de blanc, sans-serif, structure claire) mais décliné entièrement
+   dans une gamme de VERTS : plus aucun rouge (choix du propriétaire). Deux verts
+   (dominant + foncé) et un vert clair de fond suffisent au chrome et aux accents.
    Ne toucher que ce fichier pour re-thémer. */
 
 :root {
-  /* Color — vert institutionnel dominant + rouge d'accent, sur blanc. */
+  /* Color — gamme de verts sur blanc, sans rouge. */
   --color-bg: #f4faf6;          /* fond de page, blanc verdâtre */
   --color-surface: #ffffff;     /* cartes, zones surélevées */
   --color-ink: #16241d;         /* texte courant, ardoise très foncée verdâtre */
   --color-muted: #566b60;       /* texte secondaire, légendes (contraste AA sur bg) */
   --color-line: #d5e6db;        /* filets, bordures */
   --color-accent: #157347;      /* liens, titres, boutons primaires (vert institutionnel) */
-  --color-accent-dark: #0f5a37; /* survol, états actifs (vert foncé) */
+  --color-accent-dark: #0f5a37; /* survol, états actifs, intertitres (vert foncé) */
   --color-accent-ink: #ffffff;  /* texte sur accent */
-  --color-accent-2: #d0021b;    /* rouge : intertitres, accents, chiffres, puces */
-  --color-accent-2-soft: #fdeced;/* fond rouge très clair (encadrés) */
+  --color-accent-2: #0f5a37;    /* accent secondaire = vert foncé (ex-rouge, retiré) */
+  --color-accent-2-soft: #e4f3ea;/* fond vert très clair (encadrés) */
   --color-accent-soft: #e4f3ea; /* fond vert très clair (sections, cartes douces) */
 
   /* Type — sans-serif partout (charte AP-HP). Pas de webfont : pile système. */

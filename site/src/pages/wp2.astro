@@ -28,17 +28,22 @@ const objectifs = [
   description="WP2 du PEPR TREASURE : machines de perfusion en transplantation (foie, cœur, poumon, rein) et amélioration du parcours du greffon, du prélèvement à l’implantation."
 >
   <section class="hero">
-    <p class="eyebrow">PEPR TREASURE · Work Package 2</p>
-    <h1>Parcours du greffon et perfusion d’organes</h1>
-    <p class="lede">
-      Le WP2 se concentre sur les <strong>machines de perfusion</strong> en
-      transplantation d’organes et sur le <strong>parcours du greffon</strong> —
-      tout ce qui se joue entre le prélèvement de l’organe et son implantation
-      chez le receveur.
-    </p>
-    <ul class="chips" aria-label="Organes concernés">
-      <li>Foie</li><li>Cœur</li><li>Poumon</li><li>Rein</li>
-    </ul>
+    <div class="hero-text">
+      <p class="eyebrow">PEPR TREASURE · Work Package 2</p>
+      <h1>Parcours du greffon et perfusion d’organes</h1>
+      <p class="lede">
+        Le WP2 se concentre sur les <strong>machines de perfusion</strong> en
+        transplantation d’organes et sur le <strong>parcours du greffon</strong> —
+        tout ce qui se joue entre le prélèvement de l’organe et son implantation
+        chez le receveur.
+      </p>
+      <ul class="chips" aria-label="Organes concernés">
+        <li>Foie</li><li>Cœur</li><li>Poumon</li><li>Rein</li>
+      </ul>
+    </div>
+    <div class="hero-logo">
+      <img src="/logo-wp2.png" alt="Logo du Work Package 2" width="1409" height="1417" />
+    </div>
   </section>
 
   <section class="block">
@@ -53,13 +58,27 @@ const objectifs = [
     </ul>
   </section>
 
-  <p class="soon"><span class="dot" aria-hidden="true"></span> Page en construction — logo et détails du WP2 à venir.</p>
+  <p class="soon"><span class="dot" aria-hidden="true"></span> Page en construction — les détails du WP2 arrivent prochainement.</p>
 </Base>
 
 <style>
   .hero {
-    max-width: 48rem;
     padding: var(--space-4) 0 var(--space-3);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-5);
+  }
+  .hero-text { max-width: 40rem; }
+  .hero-logo img {
+    width: 300px;
+    max-width: 36vw;
+    height: auto;
+    border-radius: var(--radius-lg);
+  }
+  @media (max-width: 780px) {
+    .hero { grid-template-columns: 1fr; gap: var(--space-4); }
+    .hero-logo img { width: 220px; max-width: 70%; }
   }
   .eyebrow {
     text-transform: uppercase;

@@ -4,7 +4,7 @@ How we look, everywhere: the website, the decks, any image we produce. The AI re
 
 ## Philosophy
 
-**Moderne et institutionnel, charte AP-HP déclinée en vert.** Le site reprend les codes de la charte AP-HP — beaucoup de blanc, typographie sans-serif, structure claire, un rouge « cœur » en accent — mais remplace le bleu AP-HP par un **vert institutionnel** comme couleur dominante. Il doit inspirer confiance et rigueur au premier regard, sans être froid ni administratif. Toute décision visuelle doit être défendable contre cette phrase : *sérieux, clair, institutionnel, vert.* (Direction validée par le propriétaire le 2026-07-23.)
+**Moderne et institutionnel, tout en verts.** Le site reprend les codes de la charte AP-HP — beaucoup de blanc, typographie sans-serif, structure claire — mais dans une **gamme de verts** comme couleur dominante. **Pas de rouge** (le propriétaire n'aime pas les lettres en rouge, 2026-07-24) : intertitres, puces, chiffres et accents sont tous en vert. En-tête : barre blanche collante avec le **logo TREASURE** à gauche et des **onglets** à droite (onglet actif souligné en vert). Il doit inspirer confiance et rigueur au premier regard, sans être froid ni administratif. Toute décision visuelle doit être défendable contre cette phrase : *sérieux, clair, institutionnel, vert.*
 
 ## Tokens
 

@@ -45,18 +45,23 @@ const objectifs = [
   description="TREASURE (Transplantation, REgeneration And preservation of OrganS) — le PEPR dédié à la transplantation d’organes, financé par France 2030 et piloté par l’INSERM."
 >
   <section class="hero">
-    <p class="eyebrow">France&nbsp;2030 · INSERM — Agence de programmes de recherche en Santé</p>
-    <h1>PEPR&nbsp;TREASURE</h1>
-    <p class="expand">Transplantation, REgeneration And preservation of OrganS</p>
-    <p class="lede">
-      Le nouveau Programme d’Équipement Prioritaire de Recherche dédié à la
-      transplantation d’organes. Notre ambition : améliorer significativement
-      les résultats de la greffe grâce à une approche unique qui fédère toute
-      la communauté française de la transplantation — tous organes confondus.
-    </p>
-    <ul class="chips" aria-label="Organes couverts">
-      {organes.map((o) => <li>{o}</li>)}
-    </ul>
+    <div class="hero-text">
+      <p class="eyebrow">France&nbsp;2030 · INSERM — Agence de programmes de recherche en Santé</p>
+      <h1>PEPR&nbsp;TREASURE</h1>
+      <p class="expand">Transplantation, REgeneration And preservation of OrganS</p>
+      <p class="lede">
+        Le nouveau Programme d’Équipement Prioritaire de Recherche dédié à la
+        transplantation d’organes. Notre ambition : améliorer significativement
+        les résultats de la greffe grâce à une approche unique qui fédère toute
+        la communauté française de la transplantation — tous organes confondus.
+      </p>
+      <ul class="chips" aria-label="Organes couverts">
+        {organes.map((o) => <li>{o}</li>)}
+      </ul>
+    </div>
+    <div class="hero-logo">
+      <img src="/logo-treasure.png" alt="Logo du PEPR TREASURE" width="573" height="460" />
+    </div>
   </section>
 
   <section class="block">
@@ -100,8 +105,25 @@ const objectifs = [
 
 <style>
   .hero {
-    max-width: 48rem;
     padding: var(--space-4) 0 var(--space-3);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-5);
+  }
+  .hero-text { max-width: 40rem; }
+  .hero-logo img {
+    width: 260px;
+    max-width: 34vw;
+    height: auto;
+  }
+  @media (max-width: 780px) {
+    .hero {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+    .hero-logo { order: -1; }
+    .hero-logo img { width: 180px; max-width: 60%; }
   }
   .eyebrow {
     text-transform: uppercase;
