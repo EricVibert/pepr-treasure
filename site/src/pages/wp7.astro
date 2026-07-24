@@ -1,0 +1,202 @@
+---
+// Page Work Package 7 — SHS (sciences humaines et sociales).
+// Contenu fourni par le propriétaire (2026-07-24).
+import Base from '../layouts/Base.astro';
+
+const tags = ['Don post-mortem', 'Éthique', 'Interdisciplinaire', 'Participative'];
+
+const axes = [
+  {
+    num: '1',
+    titre: 'Confiance, adhésion, refus et opposition',
+    texte: 'Comprendre les ressorts contemporains du rapport au don, sans réduire la défiance à un simple défaut d’information.',
+  },
+  {
+    num: '2',
+    titre: 'Organisations et parcours des donneurs',
+    texte: 'Analyser les filières du don en articulant efficacité médicale, efficience économique, acceptabilité éthique et soutenabilité psychique.',
+  },
+  {
+    num: '3',
+    titre: 'Éthique des innovations',
+    texte: 'Anticiper les transformations de la médecine du don et de la transplantation, en interrogeant leurs conditions de légitimité, de confiance et d’acceptabilité.',
+  },
+];
+---
+
+<Base
+  title="Work Package 7 — Sciences humaines et sociales du don"
+  description="WP7 SHS du PEPR TREASURE : le don, et notamment le don post-mortem, comme objet de recherche en sciences humaines et sociales — un espace interdisciplinaire, indépendant et participatif."
+>
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">PEPR TREASURE · Work Package 7 — SHS</p>
+      <h1>Le don comme objet de recherche</h1>
+      <p class="lede">
+        Le WP7 SHS fait le choix de partir du <strong>donneur</strong> — et plus
+        spécifiquement du <strong>don post-mortem</strong> — comme objet de
+        recherche en sciences humaines et sociales. Sans mettre à distance les
+        receveurs, il s’intéresse au maillon sans lequel la transplantation n’est
+        pas possible.
+      </p>
+      <ul class="chips" aria-label="Mots-clés">
+        {tags.map((t) => <li>{t}</li>)}
+      </ul>
+    </div>
+    <div class="hero-logo">
+      <img src="/logo-wp7.png" alt="Logo du Work Package 7 — SHS" width="1254" height="1254" />
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Une recherche interdisciplinaire et indépendante</h2>
+    <p>
+      Le cœur du travail sera d’analyser, sans la simplifier, la tension entre le
+      respect de la personne en fin de vie, l’accompagnement de ses proches,
+      l’expérience des soignants qui en prennent soin, et l’enjeu de solidarité
+      envers les patients en attente de greffe.
+    </p>
+    <p>
+      L’ambition est de construire un espace de recherche <strong>interdisciplinaire,
+      indépendant et rigoureux</strong>, associant sciences de la santé, sciences
+      humaines et sociales, institutions, associations, représentants des usagers
+      et partenaires internationaux. L’objectif : produire des connaissances
+      nouvelles — décrire, comprendre, analyser et éclairer les pratiques, les
+      organisations, les expériences vécues et les controverses.
+    </p>
+  </section>
+
+  <section class="block">
+    <h2>Trois axes de travail</h2>
+    <ul class="axes-cards">
+      {axes.map((a) => (
+        <li>
+          <span class="num">{a.num}</span>
+          <h3>{a.titre}</h3>
+          <p>{a.texte}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="block">
+    <p class="closing">
+      Le travail commence : construire les méthodes, prioriser les projets,
+      produire des données nouvelles et faire du WP7 un espace durable de
+      recherche <strong>critique, interdisciplinaire et participative</strong>.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding: var(--space-4) 0 var(--space-3);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-5);
+  }
+  .hero-text { max-width: 40rem; }
+  .hero-logo img {
+    width: 300px;
+    max-width: 36vw;
+    height: auto;
+    border-radius: var(--radius-lg);
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.01em;
+    color: var(--color-accent);
+    margin-bottom: var(--space-3);
+  }
+  .lede {
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+    max-width: 40rem;
+  }
+  .lede strong { color: var(--color-ink); }
+
+  .chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+  .chips li {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .block {
+    max-width: 52rem;
+    margin-top: var(--space-5);
+  }
+  .block h2 {
+    color: var(--color-accent);
+    margin-bottom: var(--space-3);
+  }
+  .block p { color: var(--color-ink); }
+  .block p strong { color: var(--color-accent-dark); }
+
+  .axes-cards {
+    list-style: none;
+    display: grid;
+    gap: var(--space-3);
+    grid-template-columns: repeat(3, 1fr);
+    max-width: none;
+  }
+  .axes-cards li {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-top: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .axes-cards .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-weight: 800;
+    margin-bottom: var(--space-2);
+  }
+  .axes-cards h3 {
+    color: var(--color-ink);
+    font-size: var(--text-base);
+    margin-bottom: var(--space-2);
+  }
+  .axes-cards p { color: var(--color-muted); font-size: var(--text-base); }
+
+  .closing {
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+    border-left: 4px solid var(--color-accent);
+    padding-left: var(--space-3);
+  }
+
+  @media (max-width: 900px) {
+    .axes-cards { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 780px) {
+    .hero { grid-template-columns: 1fr; gap: var(--space-4); }
+    .hero-logo img { width: 220px; max-width: 70%; }
+  }
+</style>

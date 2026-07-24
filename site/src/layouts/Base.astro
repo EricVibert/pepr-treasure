@@ -19,7 +19,8 @@ const isActive = (href: string) => (href.replace(/\/+$/, '') || '/') === path;
 const siteName = 'PEPR TREASURE';
 const nav: { href: string; label: string }[] = [
   { href: '/', label: 'Accueil' },
-  { href: '/wp2', label: 'Work Package 2' },
+  { href: '/wp2', label: 'WP2 — Perfusion' },
+  { href: '/wp7', label: 'WP7 — SHS' },
 ];
 ---
 
@@ -59,7 +60,9 @@ const nav: { href: string; label: string }[] = [
     <footer class="site-footer">
       <div class="funders">
         <span class="funders-label">Avec le soutien de</span>
-        <img class="funders-logo" src="/france-2030.svg" alt="France 2030" width="120" height="116" />
+        <img class="funders-logo" src="/france-2030.png" alt="France 2030" width="322" height="316" />
+        <img class="funders-logo" src="/logo-anr.png" alt="Agence nationale de la recherche (ANR)" width="458" height="110" />
+        <img class="funders-logo" src="/logo-aphp.png" alt="Assistance Publique – Hôpitaux de Paris (AP-HP)" width="493" height="102" />
       </div>
       <p class="copyright">© {new Date().getFullYear()} {siteName}</p>
     </footer>
