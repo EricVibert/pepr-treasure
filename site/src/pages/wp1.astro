@@ -1,0 +1,145 @@
+---
+// Page Work Package 1 — Données augmentées.
+// Contenu fourni par le propriétaire (2026-07-24), résumé pour le web.
+import Base from '../layouts/Base.astro';
+
+const tags = ['Interopérabilité', 'IA prédictive', 'Gouvernance', 'Sécurité des données'];
+
+const axes = [
+  {
+    num: '1',
+    titre: 'Collecte et intégration multisources',
+    texte: 'Rassembler et agréger des données très disparates — dossiers de santé électroniques, génomique, imagerie, résultats des patients, biobanques — ainsi que toutes les données produites par les autres work packages (WP2 à WP5).',
+  },
+  {
+    num: '2',
+    titre: 'Structuration et architecture technique',
+    texte: 'Distinguer données structurées et non structurées (imagerie), automatiser la collecte par ETL et API, et bâtir une architecture unique centrée sur le patient — chaînage déterministe (NIR) ou probabiliste, stockage cloud et sur site, sauvegardes résilientes.',
+  },
+  {
+    num: '3',
+    titre: 'Interopérabilité et sécurité',
+    texte: 'S’appuyer sur les normes HL7 FHIR et DICOM, créer des outils d’interrogation fédérée (analyser les sources sans déplacer les données) et garantir confidentialité et sécurité selon les bonnes pratiques du Ministère de la Santé.',
+  },
+  {
+    num: '4',
+    titre: 'Gouvernance et preuves de concept',
+    texte: 'Construire un cadre de gouvernance robuste avec les acteurs institutionnels et de santé (Agence de la Biomédecine, hôpitaux, Health Data Hub, CNIL, CNAM, associations de patients…) et démarrer par des POC pour valider l’architecture et le chaînage des bases existantes.',
+  },
+  {
+    num: '5',
+    titre: 'Impact attendu',
+    texte: 'Des données de très haute qualité pour développer des algorithmes d’IA prédictifs et des analyses avancées : personnaliser les interventions, optimiser l’allocation des organes, améliorer diagnostics et prévisions, et positionner la France en leader mondial de la recherche en transplantation.',
+  },
+];
+---
+
+<Base
+  title="Work Package 1 — Données augmentées"
+  description="WP1 du PEPR TREASURE : un espace de données multidimensionnel et interopérable en transplantation, socle des algorithmes d’IA prédictifs et de la future clinique de la transplantation (WP6)."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE · Work Package 1</p>
+    <h1>Données augmentées</h1>
+    <p class="subtitle">Jeu de données multidimensionnel et interopérable en transplantation</p>
+    <p class="lede">
+      Le WP1 développe progressivement un vaste <strong>espace de dépôt de
+      données</strong> pour améliorer la prise en charge des patients
+      transplantés. Ce recueil constituera le cœur du <strong>WP6</strong> —
+      la toute première clinique de la transplantation fondée sur l’intelligence
+      artificielle.
+    </p>
+    <ul class="chips" aria-label="Mots-clés">
+      {tags.map((t) => <li>{t}</li>)}
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Axes et objectifs</h2>
+    <ul class="axes-cards">
+      {axes.map((a) => (
+        <li>
+          <span class="num">{a.num}</span>
+          <div class="v-body">
+            <h3>{a.titre}</h3>
+            <p>{a.texte}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-4) 0 var(--space-2); max-width: 50rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-accent);
+    margin-bottom: var(--space-2);
+  }
+  .subtitle {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: var(--space-3);
+  }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); }
+  .lede strong { color: var(--color-ink); }
+
+  .chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+  .chips li {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .block { margin-top: var(--space-5); }
+  .block h2 { color: var(--color-accent); margin-bottom: var(--space-4); }
+
+  .axes-cards { list-style: none; display: grid; gap: var(--space-3); }
+  .axes-cards li {
+    display: flex;
+    gap: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .axes-cards .num {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 800;
+  }
+  .v-body h3 { font-size: var(--text-lg); color: var(--color-accent-dark); margin-bottom: var(--space-2); }
+  .v-body p { color: var(--color-ink); }
+
+  @media (max-width: 520px) {
+    .axes-cards li { flex-direction: column; }
+  }
+</style>
