@@ -32,6 +32,7 @@ const membres = [
     nom: 'Dr Hannah Kaminski',
     photo: '/copil/kaminski.jpg',
     initiales: 'HK',
+    linkedin: 'https://www.linkedin.com/in/hannah-kaminski-30b298210/',
     role: 'Membre du comité de pilotage',
     affiliation: 'Néphrologie–transplantation rénale, CHU de Bordeaux (Pellegrin) · Université de Bordeaux, CNRS UMR 5164 ImmunoConcEpT',
     resume: 'Praticienne hospitalière en néphrologie et transplantation rénale au CHU de Bordeaux et enseignante-chercheuse (Université de Bordeaux, laboratoire ImmunoConcEpT). Elle coordonne le consortium européen HORUS (Horizon Europe, 7 M€, 2021-2027), qui étudie les interactions entre l’hôte et le cytomégalovirus (CMV) en transplantation d’organes solides.',
@@ -96,6 +97,17 @@ const membres = [
             <p class="role">{m.role}</p>
             <p class="affil">{m.affiliation}</p>
             <p class="resume">{m.resume}</p>
+            <p class="links">
+              <a
+                class="link-btn"
+                href={`https://scholar.google.com/scholar?q=${encodeURIComponent(m.nom.replace(/^(Pr|Dr)\s+/, ''))}`}
+                target="_blank"
+                rel="noopener"
+              >Publications (Google Scholar)</a>
+              {m.linkedin && (
+                <a class="link-btn" href={m.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+              )}
+            </p>
           </div>
         </li>
       ))}
@@ -156,6 +168,24 @@ const membres = [
   .role { font-weight: 700; color: var(--color-accent); font-size: var(--text-sm); margin-bottom: 0.15rem; }
   .affil { color: var(--color-muted); font-size: var(--text-sm); margin-bottom: var(--space-2); }
   .resume { color: var(--color-ink); font-size: var(--text-base); }
+  .links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+  }
+  .link-btn:hover { background: var(--color-accent); color: #fff; }
 
   .note { margin-top: var(--space-4); color: var(--color-muted); font-size: var(--text-sm); font-style: italic; }
 
