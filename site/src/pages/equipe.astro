@@ -6,6 +6,7 @@ import Base from '../layouts/Base.astro';
 const membres = [
   {
     nom: 'Agnès Audier',
+    photo: '/copil/audier.jpg',
     initiales: 'AA',
     role: 'Co-porteuse du PEPR TREASURE',
     affiliation: 'Senior Advisor, Boston Consulting Group (BCG) · experte, Institut Montaigne',
@@ -13,6 +14,7 @@ const membres = [
   },
   {
     nom: 'Pr Guillaume Coutance',
+    photo: '/copil/coutance.jpg',
     initiales: 'GC',
     role: 'Membre du comité de pilotage',
     affiliation: 'Chirurgie cardiaque & transplantation, AP-HP (Pitié-Salpêtrière / HEGP)',
@@ -20,6 +22,7 @@ const membres = [
   },
   {
     nom: 'Pr Nassim Kamar',
+    photo: '/copil/kamar.jpg',
     initiales: 'NK',
     role: 'Membre du comité de pilotage',
     affiliation: 'Néphrologie & transplantation d’organes, CHU de Toulouse (Hôpital Rangueil)',
@@ -27,6 +30,7 @@ const membres = [
   },
   {
     nom: 'Dr Hannah Kaminski',
+    photo: '/copil/kaminski.jpg',
     initiales: 'HK',
     role: 'Membre du comité de pilotage',
     affiliation: 'Néphrologie–transplantation rénale, CHU de Bordeaux (Pellegrin) · Université de Bordeaux, CNRS UMR 5164 ImmunoConcEpT',
@@ -34,6 +38,7 @@ const membres = [
   },
   {
     nom: 'Dr Fanny Lebossé',
+    photo: '/copil/lebosse.jpg',
     initiales: 'FL',
     role: 'Membre du comité de pilotage',
     affiliation: 'Hépatologie & transplantation hépatique, Hospices Civils de Lyon (Hôpital de la Croix-Rousse)',
@@ -41,6 +46,7 @@ const membres = [
   },
   {
     nom: 'Pr Alexandre Loupy',
+    photo: '/copil/loupy.jpg',
     initiales: 'AL',
     role: 'Co-porteur du PEPR TREASURE',
     affiliation: 'Néphrologie & épidémiologie, Université Paris Cité / INSERM (PARCC) · directeur du Paris Transplant Group (PITOR)',
@@ -48,6 +54,7 @@ const membres = [
   },
   {
     nom: 'Pr Éric Vibert',
+    photo: '/copil/vibert.jpg',
     initiales: 'EV',
     role: 'Co-porteur du PEPR TREASURE',
     affiliation: 'Centre Hépato-Biliaire, Hôpital Paul-Brousse (AP-HP) · Université Paris-Saclay',
@@ -55,6 +62,7 @@ const membres = [
   },
   {
     nom: 'Pr François Pattou',
+    photo: '/copil/pattou.jpg',
     initiales: 'FP',
     role: 'Co-porteur du PEPR TREASURE',
     affiliation: 'Chirurgie générale & endocrinienne, CHU de Lille · Université de Lille / INSERM U1190 (EGID)',
@@ -80,7 +88,9 @@ const membres = [
     <ul class="members">
       {membres.map((m) => (
         <li>
-          <div class="avatar" aria-hidden="true">{m.initiales}</div>
+          {m.photo
+            ? <img class="avatar" src={m.photo} alt={`Portrait de ${m.nom}`} width="440" height="440" loading="lazy" />
+            : <div class="avatar avatar--initiales" aria-hidden="true">{m.initiales}</div>}
           <div class="m-body">
             <h2>{m.nom}</h2>
             <p class="role">{m.role}</p>
@@ -126,9 +136,14 @@ const membres = [
   }
   .avatar {
     flex: 0 0 auto;
-    width: 3.25rem;
-    height: 3.25rem;
+    width: 4.25rem;
+    height: 4.25rem;
     border-radius: 50%;
+    object-fit: cover;
+    background: var(--color-accent-soft);
+    border: 2px solid var(--color-accent-soft);
+  }
+  .avatar--initiales {
     background: var(--color-accent);
     color: #fff;
     display: flex;
