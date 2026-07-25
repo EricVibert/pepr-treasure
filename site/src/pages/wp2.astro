@@ -1,41 +1,52 @@
 ---
-// Page Work Package 2 — Parcours du greffon et perfusion d'organes.
-// Contenu fourni par le propriétaire (2026-07-24).
+// Page Work Package 2 — Perfusion augmentée d'organes.
+// Contenu fourni par le propriétaire (2026-07-24), résumé pour le web.
 import Base from '../layouts/Base.astro';
 
-const objectifs = [
+const axes = [
   {
-    titre: 'Cartographier les machines de perfusion',
-    texte: 'Point de départ du WP2 : dresser une cartographie de l’utilisation des machines de perfusion en transplantation du foie, du cœur, du poumon et du rein.',
+    num: '1',
+    titre: 'Plateforme digitale pour le prélèvement multi-organes (PMO)',
+    texte: 'Aujourd’hui, les informations de prélèvement transitent souvent par téléphone ou à la main, d’où des pertes de données. Le WP2 développe une plateforme numérique pour centraliser, coordonner et automatiser toutes les données (anesthésie, horaires, évaluation) : suivi des organes en temps réel, ajustement des paramètres de perfusion à distance, intégration de nouveaux capteurs, et alimentation directe de la base de données du WP1.',
   },
   {
-    titre: 'Améliorer le parcours du greffon',
-    texte: 'Identifier les améliorations possibles entre le moment du prélèvement de l’organe et son implantation chez le receveur.',
+    num: '2',
+    titre: 'Hubs de perfusion mutualisés',
+    texte: 'L’usage des machines de perfusion (hypothermiques ou normothermiques) n’est pas homogène en France et exige une expertise pointue. Le projet évalue des « hubs » régionaux (sur le modèle de PRISME en Île-de-France), mutualisant machines et personnel qualifié pour plusieurs hôpitaux — pour optimiser la logistique, mieux réparer les organes avant greffe, et servir de lieux d’innovation et de formation.',
+  },
+];
+
+const inMachina = [
+  {
+    titre: 'Traitements médicamenteux sur organes isolés',
+    texte: 'Sur des foies explantés ou des spécimens chirurgicaux (prototype Liver4Life), tester des stratégies thérapeutiques directes, notamment contre le carcinome hépatocellulaire et les métastases colorectales.',
   },
   {
-    titre: 'Mieux apparier donneur et receveur',
-    texte: 'Travailler à une meilleure adéquation morphologique entre les organes du donneur et du receveur.',
+    titre: 'Nouveaux outils d’imagerie et biomarqueurs',
+    texte: 'Déployer des technologies de rupture pour évaluer les organes en machine : spectrométrie de masse en temps réel, imagerie hyperspectrale, endomicroscopie confocale, ultrasons ultrarapides.',
   },
   {
-    titre: 'Évaluer la viabilité des greffons « limite »',
-    texte: 'Développer de nouvelles méthodes d’évaluation de la viabilité des organes sur machines de perfusion normothermique oxygénée, afin de mieux décider de l’utilisation des greffons considérés comme « limite ».',
+    titre: 'Réparation des greffons marginaux',
+    texte: 'Grâce à des modélisations mathématiques et des analyses biochimiques, stratifier la viabilité d’un organe pour « réparer » et utiliser en sécurité des greffons initialement jugés trop fragiles.',
   },
 ];
 ---
 
 <Base
-  title="Work Package 2 — Parcours du greffon et perfusion d’organes"
-  description="WP2 du PEPR TREASURE : machines de perfusion en transplantation (foie, cœur, poumon, rein) et amélioration du parcours du greffon, du prélèvement à l’implantation."
+  title="Work Package 2 — Perfusion augmentée d’organes"
+  description="WP2 du PEPR TREASURE : améliorer les technologies de perfusion pour préserver, tester et régénérer les organes entre le prélèvement et la greffe — plateforme PMO, hubs de perfusion et perfusion normothermique longue durée (In Machina)."
 >
   <section class="hero">
     <div class="hero-text">
       <p class="eyebrow">PEPR TREASURE · Work Package 2</p>
-      <h1>Parcours du greffon et perfusion d’organes</h1>
+      <h1>Perfusion augmentée d’organes</h1>
+      <p class="subtitle">Parcours du greffon et perfusion d’organes</p>
       <p class="lede">
-        Le WP2 se concentre sur les <strong>machines de perfusion</strong> en
-        transplantation d’organes et sur le <strong>parcours du greffon</strong> —
-        tout ce qui se joue entre le prélèvement de l’organe et son implantation
-        chez le receveur.
+        Le WP2 améliore les technologies de <strong>perfusion</strong> pour
+        préserver, tester et régénérer les organes entre leur prélèvement et
+        leur transplantation. Objectif : augmenter la qualité et la longévité
+        des organes, élargir le vivier de donneurs et contribuer à l’objectif
+        global de <strong>+15 % de greffes</strong>.
       </p>
       <ul class="chips" aria-label="Organes concernés">
         <li>Foie</li><li>Cœur</li><li>Poumon</li><li>Rein</li>
@@ -47,18 +58,52 @@ const objectifs = [
   </section>
 
   <section class="block">
-    <h2>Objectifs du Work Package 2</h2>
-    <ul class="objectifs">
-      {objectifs.map((o) => (
+    <h2>Axes et objectifs</h2>
+    <ul class="axes-cards">
+      {axes.map((a) => (
         <li>
-          <h3>{o.titre}</h3>
-          <p>{o.texte}</p>
+          <span class="num">{a.num}</span>
+          <div class="v-body">
+            <h3>{a.titre}</h3>
+            <p>{a.texte}</p>
+          </div>
         </li>
       ))}
+
+      <li class="feature">
+        <span class="num">3</span>
+        <div class="v-body">
+          <h3>Projet « In Machina » — Perfusion Normothermique Longue Durée</h3>
+          <p>
+            Conserver des organes en conditions quasi physiologiques pendant
+            plusieurs jours, jusqu’à deux semaines — ouvrant la voie à de
+            véritables thérapies sur l’organe isolé. Trois sous-objectifs :
+          </p>
+          <ul class="sub">
+            {inMachina.map((s) => (
+              <li>
+                <h4>{s.titre}</h4>
+                <p>{s.texte}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </li>
     </ul>
   </section>
 
-  <p class="soon"><span class="dot" aria-hidden="true"></span> Page en construction — les détails du WP2 arrivent prochainement.</p>
+  <section class="block">
+    <h2>Impact attendu</h2>
+    <p class="impact">
+      En comprenant mieux la physiopathologie des organes hors du corps et en
+      optimisant leur transport (y compris depuis l’Outre-mer), le WP2 étend
+      considérablement les possibilités de greffe. Les données de viabilité des
+      organes perfusés nourriront les algorithmes de la future clinique IA
+      (<strong>WP6</strong>) et prépareront le terrain pour les organes
+      bio-artificiels (<strong>WP3</strong>) ou issus d’animaux génétiquement
+      modifiés.
+    </p>
+  </section>
 </Base>
 
 <style>
@@ -76,29 +121,27 @@ const objectifs = [
     height: auto;
     border-radius: var(--radius-lg);
   }
-  @media (max-width: 780px) {
-    .hero { grid-template-columns: 1fr; gap: var(--space-4); }
-    .hero-logo img { width: 220px; max-width: 70%; }
-  }
   .eyebrow {
     text-transform: uppercase;
     letter-spacing: 0.08em;
     font-size: var(--text-sm);
     font-weight: 700;
-    color: var(--color-accent-2);
+    color: var(--color-accent-dark);
     margin-bottom: var(--space-3);
   }
   .hero h1 {
     font-size: clamp(2rem, 5vw, 3rem);
     letter-spacing: -0.01em;
     color: var(--color-accent);
+    margin-bottom: var(--space-2);
+  }
+  .subtitle {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-ink);
     margin-bottom: var(--space-3);
   }
-  .lede {
-    font-size: var(--text-lg);
-    color: var(--color-muted);
-    max-width: 40rem;
-  }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); max-width: 40rem; }
   .lede strong { color: var(--color-ink); }
 
   .chips {
@@ -117,52 +160,65 @@ const objectifs = [
     border-radius: 999px;
   }
 
-  .block {
-    max-width: 52rem;
-    margin-top: var(--space-5);
-  }
-  .block h2 {
-    color: var(--color-accent);
-    margin-bottom: var(--space-4);
-  }
+  .block { margin-top: var(--space-5); }
+  .block h2 { color: var(--color-accent); margin-bottom: var(--space-4); }
 
-  .objectifs {
-    list-style: none;
-    display: grid;
+  .axes-cards { list-style: none; display: grid; gap: var(--space-3); }
+  .axes-cards > li {
+    display: flex;
     gap: var(--space-3);
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .objectifs li {
     background: var(--color-surface);
     border: 1px solid var(--color-line);
-    border-top: 4px solid var(--color-accent);
+    border-left: 4px solid var(--color-accent);
     border-radius: var(--radius);
     padding: var(--space-3);
     box-shadow: var(--shadow);
   }
-  .objectifs h3 {
-    color: var(--color-ink);
-    margin-bottom: var(--space-2);
-  }
-  .objectifs p {
-    color: var(--color-muted);
-    font-size: var(--text-base);
-  }
-  @media (max-width: 640px) {
-    .objectifs { grid-template-columns: 1fr; }
-  }
-
-  .soon {
-    margin-top: var(--space-5);
+  .axes-cards .num {
+    flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
-    gap: var(--space-2);
-    font-size: var(--text-sm);
-    color: var(--color-muted);
-  }
-  .dot {
-    width: 0.5rem; height: 0.5rem;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
     border-radius: 50%;
     background: var(--color-accent);
+    color: #fff;
+    font-weight: 800;
+  }
+  .v-body h3 { font-size: var(--text-lg); color: var(--color-accent-dark); margin-bottom: var(--space-2); }
+  .v-body > p { color: var(--color-ink); }
+  .feature { background: var(--color-accent-soft) !important; }
+
+  .sub {
+    list-style: none;
+    display: grid;
+    gap: var(--space-2);
+    margin-top: var(--space-3);
+  }
+  .sub li {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+  }
+  .sub h4 { color: var(--color-ink); font-size: var(--text-base); margin-bottom: var(--space-1); }
+  .sub p { color: var(--color-muted); font-size: var(--text-base); }
+
+  .impact {
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+    border-left: 4px solid var(--color-accent);
+    padding-left: var(--space-3);
+    max-width: 52rem;
+  }
+  .impact strong { color: var(--color-accent-dark); }
+
+  @media (max-width: 780px) {
+    .hero { grid-template-columns: 1fr; gap: var(--space-4); }
+    .hero-logo img { width: 220px; max-width: 70%; }
+  }
+  @media (max-width: 520px) {
+    .axes-cards > li { flex-direction: column; }
   }
 </style>

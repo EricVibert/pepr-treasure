@@ -1,0 +1,179 @@
+---
+// Page Work Package 3 — Greffes de tissus et d'organes augmentés.
+// Contenu fourni par le propriétaire (2026-07-24), résumé pour le web.
+import Base from '../layouts/Base.astro';
+
+const tags = ['Îlots pancréatiques', 'Trachées bio-artificielles', 'Médecine régénérative', 'Immunomodulation'];
+
+const axes = [
+  {
+    num: '1',
+    titre: 'Lutte contre le diabète via les îlots pancréatiques',
+    texte: 'La greffe d’îlots restaure la production d’insuline dans le diabète de type 1, mais ces greffons sont souvent détruits par le stress et le système immunitaire. Le WP3 optimisera leur isolement et créera des îlots « furtifs » résistants. Plus innovant : intégrer ces cellules directement dans un foie ou un rein lors de la perfusion en machine (avec le WP2) pour créer des « organes augmentés d’îlots » avant transplantation.',
+  },
+  {
+    num: '2',
+    titre: 'Trachées et tissus bio-artificiels',
+    texte: 'En capitalisant sur les succès français de reconstruction trachéale à partir de tissu aortique (protocoles TRITON), le WP3 développera la prochaine génération de voies respiratoires bio-ingénierées — microfabrication, matrices biologiques, facteurs de croissance pour la vascularisation. D’autres tissus augmentés seront produits (vaisseaux sanguins, membranes 3D pour la rétine…).',
+  },
+  {
+    num: '3',
+    titre: 'Immunomodulation pour éviter le rejet',
+    texte: 'Pour favoriser l’acceptation des greffes, le projet développera des thérapies cellulaires innovantes — notamment le protocole « Eight Treg » : prélever, purifier et multiplier des cellules immunitaires régulatrices du patient, puis les lui réadministrer pour modérer sa propre réponse immunitaire.',
+  },
+  {
+    num: '4',
+    titre: 'Modèles précliniques à l’échelle humaine',
+    texte: 'Pour combler le fossé entre les rongeurs et la clinique humaine, le WP3 testera ces greffes augmentées sur de grands modèles précliniques, avec l’INRAE et des écoles vétérinaires. Ils simulent mieux les maladies et comorbidités humaines, réduisant le risque d’échec, les coûts et le temps avant les essais chez l’homme.',
+  },
+];
+---
+
+<Base
+  title="Work Package 3 — Greffes de tissus et d’organes augmentés"
+  description="WP3 du PEPR TREASURE : combiner cellules et matériaux innovants pour réparer ou améliorer les greffons — îlots pancréatiques, trachées bio-artificielles, immunomodulation et modèles précliniques à l’échelle humaine."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE · Work Package 3</p>
+    <h1>Greffes de tissus et d’organes augmentés</h1>
+    <p class="lede">
+      Le WP3 développe de nouvelles techniques combinant <strong>cellules et
+      matériaux innovants</strong> pour réparer ou améliorer les greffons, afin
+      de pallier la pénurie d’organes et d’optimiser le succès des greffes.
+    </p>
+    <div class="stats">
+      <div class="stat"><span class="num">+20 %</span> de greffes de trachées</div>
+      <div class="stat"><span class="num">+40 %</span> de greffes d’îlots de pancréas</div>
+    </div>
+    <ul class="chips" aria-label="Mots-clés">
+      {tags.map((t) => <li>{t}</li>)}
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Axes et innovations</h2>
+    <ul class="axes-cards">
+      {axes.map((a) => (
+        <li>
+          <span class="badge">{a.num}</span>
+          <div class="v-body">
+            <h3>{a.titre}</h3>
+            <p>{a.texte}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Impact attendu</h2>
+    <p class="impact">
+      L’aboutissement de ces recherches permettra le déploiement de processus de
+      bioproduction à grande échelle et rentables, confortant le leadership de la
+      France dans les <strong>biothérapies</strong> et la <strong>médecine
+      régénérative</strong>, tout en rendant ces greffes innovantes accessibles
+      à un large public.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-4) 0 var(--space-2); max-width: 50rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-accent);
+    margin-bottom: var(--space-3);
+  }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); }
+  .lede strong { color: var(--color-ink); }
+
+  .stats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+  }
+  .stat {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-2) var(--space-3);
+    box-shadow: var(--shadow);
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+  .stat .num {
+    display: block;
+    font-size: var(--text-xl);
+    font-weight: 800;
+    color: var(--color-accent);
+    line-height: 1.1;
+  }
+
+  .chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+  .chips li {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .block { margin-top: var(--space-5); }
+  .block h2 { color: var(--color-accent); margin-bottom: var(--space-4); }
+
+  .axes-cards { list-style: none; display: grid; gap: var(--space-3); }
+  .axes-cards li {
+    display: flex;
+    gap: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .axes-cards .badge {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 800;
+  }
+  .v-body h3 { font-size: var(--text-lg); color: var(--color-accent-dark); margin-bottom: var(--space-2); }
+  .v-body p { color: var(--color-ink); }
+
+  .impact {
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+    border-left: 4px solid var(--color-accent);
+    padding-left: var(--space-3);
+    max-width: 52rem;
+  }
+  .impact strong { color: var(--color-accent-dark); }
+
+  @media (max-width: 520px) {
+    .axes-cards li { flex-direction: column; }
+  }
+</style>
