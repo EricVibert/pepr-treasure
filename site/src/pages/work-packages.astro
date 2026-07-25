@@ -1,0 +1,133 @@
+---
+// Page sommaire des work packages du PEPR TREASURE.
+import Base from '../layouts/Base.astro';
+
+const wps = [
+  {
+    href: '/wp1',
+    code: 'WP1',
+    titre: 'Données augmentées',
+    desc: 'Un espace de données multidimensionnel et interopérable, socle des algorithmes d’IA et de la clinique de la transplantation.',
+  },
+  {
+    href: '/wp2',
+    code: 'WP2',
+    titre: 'Perfusion augmentée d’organes',
+    desc: 'Préserver, tester et régénérer les organes entre prélèvement et greffe : plateforme PMO, hubs de perfusion, projet « In Machina ».',
+  },
+  {
+    href: '/wp3',
+    code: 'WP3',
+    titre: 'Greffes de tissus et d’organes augmentés',
+    desc: 'Cellules et matériaux innovants pour réparer les greffons : îlots pancréatiques, trachées bio-artificielles, immunomodulation.',
+  },
+  {
+    href: '/wp4-5',
+    code: 'WP4 & WP5',
+    titre: 'Diagnostic de précision & IA',
+    desc: 'Le WP4 produit des données biologiques de très haute précision ; le WP5 les exploite par l’IA pour le suivi des patients.',
+  },
+  {
+    href: '/wp6',
+    code: 'WP6',
+    titre: 'Clinique IA de la transplantation',
+    desc: 'Modèles diagnostiques et pronostiques fondés sur l’IA : allocation des greffons, scores de rejet, iBox, jumeaux numériques.',
+  },
+  {
+    href: '/wp7',
+    code: 'WP7',
+    titre: 'SHS — le don comme objet de recherche',
+    desc: 'Sciences humaines et sociales : le don, et notamment le don post-mortem, dans un espace de recherche interdisciplinaire et participatif.',
+  },
+];
+---
+
+<Base
+  title="Work packages — PEPR TREASURE"
+  description="Les work packages du PEPR TREASURE : données augmentées (WP1), perfusion (WP2), tissus augmentés (WP3), diagnostic & IA (WP4-5), clinique IA (WP6) et sciences humaines et sociales (WP7)."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE</p>
+    <h1>Les work packages</h1>
+    <p class="lede">
+      TREASURE s’organise en work packages complémentaires, des infrastructures
+      de données jusqu’aux sciences humaines et sociales. Cliquez pour explorer
+      chacun d’eux.
+    </p>
+  </section>
+
+  <section class="block">
+    <ul class="wp-grid">
+      {wps.map((w) => (
+        <li>
+          <a href={w.href}>
+            <span class="code">{w.code}</span>
+            <h2>{w.titre}</h2>
+            <p>{w.desc}</p>
+            <span class="go">En savoir plus →</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-4) 0 var(--space-2); max-width: 46rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); color: var(--color-accent); margin-bottom: var(--space-3); }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); }
+
+  .block { margin-top: var(--space-4); }
+  .wp-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+  }
+  .wp-grid a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-top: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+    text-decoration: none;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+  }
+  .wp-grid a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(16,34,47,0.06), 0 16px 32px rgba(16,34,47,0.10);
+  }
+  .wp-grid .code {
+    align-self: flex-start;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius);
+    margin-bottom: var(--space-2);
+  }
+  .wp-grid h2 { font-size: var(--text-lg); color: var(--color-accent-dark); margin-bottom: var(--space-2); }
+  .wp-grid p { color: var(--color-muted); font-size: var(--text-base); flex: 1; }
+  .wp-grid .go {
+    margin-top: var(--space-3);
+    font-weight: 700;
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 860px) { .wp-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .wp-grid { grid-template-columns: 1fr; } }
+</style>

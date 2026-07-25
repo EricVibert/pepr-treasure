@@ -20,20 +20,6 @@ const wp4 = [
   },
 ];
 
-const wp5 = [
-  {
-    titre: 'Optimisation de l’allocation des greffons',
-    texte: 'Des modèles d’IA intègrent les profils immunologiques, génomiques et médicaux pour proposer le meilleur appariement donneur/receveur, maximiser le succès à long terme et réduire la mortalité sur liste d’attente.',
-  },
-  {
-    titre: 'Scores diagnostiques pour éviter les actes inutiles',
-    texte: 'En combinant biomarqueurs sanguins et tissulaires (WP4) et données cliniques, l’IA calcule un score de risque de rejet individualisé : réduire drastiquement les biopsies inutiles et générer des scores de lésions quantitatifs (qLesion) pour adapter l’immunosuppression en sécurité.',
-  },
-  {
-    titre: 'Prédiction des risques post-transplantation',
-    texte: 'Enrichir le système iBox pour anticiper à long terme les complications graves (perte du greffon, décès, cancers, infections, événements cardiovasculaires). Ces prédictions alimentent des « jumeaux numériques » qui suivent en continu le risque de chaque patient.',
-  },
-];
 ---
 
 <Base
@@ -79,17 +65,12 @@ const wp5 = [
       <h2>Interprétation par l’intelligence artificielle</h2>
     </div>
     <p class="wp-lede">
-      Exploiter les dosages, biomarqueurs et données tissulaires du WP4 pour
-      développer des modèles de machine learning au service du suivi des patients.
+      Le WP5 exploite les dosages, biomarqueurs et données tissulaires du WP4 par
+      des modèles de machine learning au service du suivi des patients. Ces modèles
+      prédictifs — allocation des greffons, scores de rejet, jumeaux numériques —
+      constituent le cœur de la <strong>clinique IA de la transplantation</strong>.
     </p>
-    <ul class="cards">
-      {wp5.map((c) => (
-        <li>
-          <h3>{c.titre}</h3>
-          <p>{c.texte}</p>
-        </li>
-      ))}
-    </ul>
+    <a class="wp-link" href="/wp6">Découvrir le WP6 — Clinique IA →</a>
   </section>
 
   <section class="block">
@@ -157,7 +138,15 @@ const wp5 = [
     border-radius: var(--radius);
   }
   .block h2 { color: var(--color-accent); }
-  .wp-lede { color: var(--color-muted); max-width: 46rem; margin-bottom: var(--space-4); }
+  .wp-lede { color: var(--color-muted); max-width: 48rem; margin-bottom: var(--space-3); }
+  .wp-lede strong { color: var(--color-ink); }
+  .wp-link {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-decoration: none;
+  }
+  .wp-link:hover { color: var(--color-accent-dark); text-decoration: underline; }
 
   .cards {
     list-style: none;
