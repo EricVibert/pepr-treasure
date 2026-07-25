@@ -25,7 +25,7 @@
   --color-accent-soft: #e4f3ea; /* fond vert très clair (sections, cartes douces) */
 
   /* Type — sans-serif partout (charte AP-HP). Pas de webfont : pile système. */
-  --font-display: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: 'Sora', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-text: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
   /* Type scale (rem). One scale for the whole site. */
