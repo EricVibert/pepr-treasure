@@ -1,0 +1,138 @@
+---
+// Page Work Package 6 — Clinique IA de la transplantation.
+// Contenu fourni par le propriétaire (2026-07-24), résumé pour le web.
+import Base from '../layouts/Base.astro';
+
+const tags = ['Allocation des greffons', 'Score de rejet', 'iBox', 'Jumeaux numériques'];
+
+const axes = [
+  {
+    num: '1',
+    titre: 'Optimisation de l’allocation des greffons',
+    texte: 'Des algorithmes d’IA évolutifs proposent le meilleur appariement donneur/receveur. Au-delà des critères de compatibilité classiques, ils analysent les profils immunologiques, génomiques et l’historique médical pour maximiser le succès à long terme, réduire la mortalité sur liste d’attente et évaluer l’utilité potentielle d’une greffe.',
+  },
+  {
+    num: '2',
+    titre: 'Diagnostics de précision et réduction des actes invasifs',
+    texte: 'En combinant données cliniques, biologiques et histologiques, l’IA calcule un score de risque de rejet individualisé pour identifier les patients chez qui une biopsie serait inutile. Une « biopsie numérique » génère des scores quantitatifs (qLesion) pour une analyse automatisée et standardisée des lésions, plus fiable que l’histologie classique.',
+  },
+  {
+    num: '3',
+    titre: 'Pronostic des risques post-transplantation',
+    texte: 'Des modèles prédictifs puissants anticipent les complications majeures à long terme (échec de la greffe, décès, cancers, infections, événements cardiovasculaires). Le système iBox, validé mondialement, sera enrichi pour calculer ces scores de risque.',
+  },
+  {
+    num: '4',
+    titre: 'Personnalisation via des « jumeaux numériques »',
+    texte: 'Toutes ces prédictions sont réunies dans une suite logicielle interactive pour les cliniciens, consolidant des jumeaux numériques — une vision dynamique de l’état de santé du patient — afin de minimiser l’exposition aux immunosuppresseurs chez les patients à faible risque et d’adapter les thérapies en temps réel.',
+  },
+];
+---
+
+<Base
+  title="Work Package 6 — Clinique IA de la transplantation"
+  description="WP6 du PEPR TREASURE : des modèles diagnostiques et pronostiques fondés sur l’IA pour le suivi des transplantations multi-organes — allocation des greffons, scores de rejet, iBox et jumeaux numériques."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE · Work Package 6</p>
+    <h1>Clinique IA de la transplantation</h1>
+    <p class="subtitle">Modèles diagnostiques et pronostiques basés sur l’IA pour le suivi multi-organes</p>
+    <p class="lede">
+      Le WP6 optimise le <strong>suivi immunitaire</strong> des patients en
+      développant des outils d’IA et de machine learning qui exploitent
+      directement les dosages et biomarqueurs ultra-précis générés par le <strong>WP4</strong>.
+    </p>
+    <ul class="chips" aria-label="Mots-clés">
+      {tags.map((t) => <li>{t}</li>)}
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Axes et innovations</h2>
+    <ul class="axes-cards">
+      {axes.map((a) => (
+        <li>
+          <span class="badge">{a.num}</span>
+          <div class="v-body">
+            <h3>{a.titre}</h3>
+            <p>{a.texte}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-4) 0 var(--space-2); max-width: 50rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-accent);
+    margin-bottom: var(--space-2);
+  }
+  .subtitle {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: var(--space-3);
+  }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); }
+  .lede strong { color: var(--color-ink); }
+
+  .chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+  .chips li {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .block { margin-top: var(--space-5); }
+  .block h2 { color: var(--color-accent); margin-bottom: var(--space-4); }
+
+  .axes-cards { list-style: none; display: grid; gap: var(--space-3); }
+  .axes-cards li {
+    display: flex;
+    gap: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .axes-cards .badge {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 800;
+  }
+  .v-body h3 { font-size: var(--text-lg); color: var(--color-accent-dark); margin-bottom: var(--space-2); }
+  .v-body p { color: var(--color-ink); }
+
+  @media (max-width: 520px) {
+    .axes-cards li { flex-direction: column; }
+  }
+</style>
