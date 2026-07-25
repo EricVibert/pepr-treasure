@@ -2,7 +2,6 @@
 // Page d'accueil PEPR TREASURE — présentation synthétique du programme.
 // Contenu tiré du résumé fourni par le propriétaire (2026-07-23).
 import Base from '../layouts/Base.astro';
-import SchemaProjet from '../components/SchemaProjet.astro';
 
 const organes = [
   'Rein', 'Foie', 'Cœur', 'Poumon', 'Trachée', 'Îlots', 'Tissus composites',
@@ -73,7 +72,12 @@ const objectifs = [
       Sept work packages complémentaires, des infrastructures de données
       jusqu’à l’éthique et la formation.
     </p>
-    <SchemaProjet />
+    <figure class="schema-fig">
+      <a href="/schema-treasure.png" target="_blank" rel="noopener" aria-label="Agrandir le schéma du projet">
+        <img src="/schema-treasure.png" alt="Schéma d’ensemble du PEPR TREASURE : work packages WP1 à WP7." width="982" height="1213" />
+      </a>
+      <figcaption>Vue d’ensemble des work packages — cliquez pour agrandir.</figcaption>
+    </figure>
   </section>
 
   <section class="block">
@@ -233,6 +237,21 @@ const objectifs = [
   .block-lede {
     color: var(--color-muted);
     margin-bottom: var(--space-4);
+  }
+  .schema-fig { margin: 0; }
+  .schema-fig a {
+    display: block;
+    background: #fff;
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    padding: var(--space-3);
+  }
+  .schema-fig img { width: 100%; height: auto; display: block; }
+  .schema-fig figcaption {
+    margin-top: var(--space-2);
+    color: var(--color-muted);
+    font-size: var(--text-sm);
   }
 
   .objectifs {
