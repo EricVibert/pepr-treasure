@@ -2,7 +2,6 @@
 // Page d'accueil PEPR TREASURE — présentation synthétique du programme.
 // Contenu tiré du résumé fourni par le propriétaire (2026-07-23).
 import Base from '../layouts/Base.astro';
-import SchemaProjet from '../components/SchemaProjet.astro';
 
 const organes = [
   'Rein', 'Foie', 'Cœur', 'Poumon', 'Trachée', 'Îlots', 'Tissus composites',
@@ -65,15 +64,6 @@ const objectifs = [
         <img src="/logo-treasure.png" alt="Logo du PEPR TREASURE" width="573" height="460" />
       </div>
     </div>
-  </section>
-
-  <section class="block">
-    <h2>Le projet en un coup d’œil</h2>
-    <p class="block-lede">
-      Sept work packages complémentaires, des infrastructures de données
-      jusqu’à l’éthique et la formation.
-    </p>
-    <SchemaProjet />
   </section>
 
   <section class="block">
@@ -148,8 +138,8 @@ const objectifs = [
   }
 
   .hero-medallion {
-    width: 380px;
-    height: 380px;
+    width: 440px;
+    height: 440px;
     border-radius: 50%;
     background: #ffffff;
     display: flex;
@@ -171,7 +161,7 @@ const objectifs = [
       text-align: center;
       gap: var(--space-4);
     }
-    .hero-medallion { order: -1; width: 250px; height: 250px; }
+    .hero-medallion { order: -1; width: 280px; height: 280px; }
     .hero .chips { justify-content: center; }
     .hero-text { max-width: 100%; }
     .hero h1 { font-size: clamp(2rem, 9vw, 3.2rem); }

@@ -1,0 +1,38 @@
+---
+// Page « Le projet en un coup d'œil » — schéma d'ensemble des work packages.
+import Base from '../layouts/Base.astro';
+import SchemaProjet from '../components/SchemaProjet.astro';
+---
+
+<Base
+  title="Le projet en un coup d’œil — PEPR TREASURE"
+  description="Vue d’ensemble du PEPR TREASURE : les sept work packages, des infrastructures de données (WP1) jusqu’à l’éthique et la formation (WP7)."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE</p>
+    <h1>Le projet en un coup d’œil</h1>
+    <p class="lede">
+      Sept work packages complémentaires, des infrastructures de données
+      jusqu’à l’éthique et la formation.
+    </p>
+  </section>
+
+  <section class="block">
+    <SchemaProjet />
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-4) 0 var(--space-2); max-width: 46rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); color: var(--color-accent); margin-bottom: var(--space-3); }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); }
+  .block { margin-top: var(--space-4); }
+</style>
