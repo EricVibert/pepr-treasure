@@ -1,0 +1,191 @@
+---
+// Page commune Work Packages 4 & 5 — Diagnostic de précision & IA.
+// Contenu fourni par le propriétaire (2026-07-24), résumé pour le web.
+import Base from '../layouts/Base.astro';
+
+const tags = ['Biopsie liquide (cfDNA)', 'Profilage moléculaire', 'Deep Learning', 'Jumeaux numériques'];
+
+const wp4 = [
+  {
+    titre: 'Biomarqueurs non invasifs (biopsie liquide)',
+    texte: 'Évaluer le potentiel de l’ADN libre circulant (cfDNA) dans le sang comme indicateur universel et précoce des lésions de l’organe greffé.',
+  },
+  {
+    titre: 'Biopsie moléculaire (profilage de l’ARNm)',
+    texte: 'À l’aide d’un panel de gènes spécifique (B-HOT), détecter les signatures liées au rejet, aux lésions tissulaires ou aux infections virales (BKV, CMV, EBV) pour affiner les diagnostics de l’histologie conventionnelle.',
+  },
+  {
+    titre: 'Biopsie numérique et profilage spatial',
+    texte: 'Quantifier objectivement les lésions par Deep Learning et cartographier, par profilage spatial numérique, la distribution des gènes et des cellules immunitaires directement sur les biopsies — une lecture de la réponse immunitaire à l’échelle cellulaire.',
+  },
+];
+
+const wp5 = [
+  {
+    titre: 'Optimisation de l’allocation des greffons',
+    texte: 'Des modèles d’IA intègrent les profils immunologiques, génomiques et médicaux pour proposer le meilleur appariement donneur/receveur, maximiser le succès à long terme et réduire la mortalité sur liste d’attente.',
+  },
+  {
+    titre: 'Scores diagnostiques pour éviter les actes inutiles',
+    texte: 'En combinant biomarqueurs sanguins et tissulaires (WP4) et données cliniques, l’IA calcule un score de risque de rejet individualisé : réduire drastiquement les biopsies inutiles et générer des scores de lésions quantitatifs (qLesion) pour adapter l’immunosuppression en sécurité.',
+  },
+  {
+    titre: 'Prédiction des risques post-transplantation',
+    texte: 'Enrichir le système iBox pour anticiper à long terme les complications graves (perte du greffon, décès, cancers, infections, événements cardiovasculaires). Ces prédictions alimentent des « jumeaux numériques » qui suivent en continu le risque de chaque patient.',
+  },
+];
+---
+
+<Base
+  title="Work Packages 4 & 5 — Diagnostic de précision & intelligence artificielle"
+  description="WP4 et WP5 du PEPR TREASURE : le WP4 produit des données biologiques et diagnostiques de très haute précision ; le WP5 les exploite par l’IA pour des outils cliniques prédictifs et des jumeaux numériques."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE · Work Packages 4 &amp; 5</p>
+    <h1>Diagnostic de précision &amp; intelligence artificielle</h1>
+    <p class="lede">
+      Les WP4 et WP5 fonctionnent en <strong>synergie étroite</strong> : le WP4
+      génère des données biologiques et diagnostiques de très haute précision,
+      que le WP5 exploite grâce à l’<strong>intelligence artificielle</strong> pour
+      concevoir des outils cliniques prédictifs et pronostiques.
+    </p>
+    <ul class="chips" aria-label="Mots-clés">
+      {tags.map((t) => <li>{t}</li>)}
+    </ul>
+  </section>
+
+  <section class="block wp">
+    <div class="wp-head">
+      <span class="wp-tag">WP4</span>
+      <h2>Données biologiques de haute précision</h2>
+    </div>
+    <p class="wp-lede">
+      Repousser les limites de l’évaluation des pathologies de greffe et
+      anticiper les rejets, tout en diminuant le recours aux biopsies invasives.
+    </p>
+    <ul class="cards">
+      {wp4.map((c) => (
+        <li>
+          <h3>{c.titre}</h3>
+          <p>{c.texte}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="block wp">
+    <div class="wp-head">
+      <span class="wp-tag">WP5</span>
+      <h2>Interprétation par l’intelligence artificielle</h2>
+    </div>
+    <p class="wp-lede">
+      Exploiter les dosages, biomarqueurs et données tissulaires du WP4 pour
+      développer des modèles de machine learning au service du suivi des patients.
+    </p>
+    <ul class="cards">
+      {wp5.map((c) => (
+        <li>
+          <h3>{c.titre}</h3>
+          <p>{c.texte}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>En synthèse</h2>
+    <p class="impact">
+      En associant la résolution d’analyse inédite du <strong>WP4</strong> et la
+      puissance prédictive de l’IA du <strong>WP5</strong>, TREASURE vise à
+      transformer la prise en charge post-transplantation : remplacer un suivi
+      réactif par une médecine <strong>personnalisée, anticipative et beaucoup
+      moins invasive</strong> pour le patient.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-4) 0 var(--space-2); max-width: 52rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: clamp(1.9rem, 4.5vw, 2.9rem);
+    color: var(--color-accent);
+    margin-bottom: var(--space-3);
+  }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); }
+  .lede strong { color: var(--color-ink); }
+
+  .chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+  .chips li {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .block { margin-top: var(--space-5); }
+  .wp-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    margin-bottom: var(--space-2);
+  }
+  .wp-tag {
+    display: inline-flex;
+    align-items: center;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0.7rem;
+    border-radius: var(--radius);
+  }
+  .block h2 { color: var(--color-accent); }
+  .wp-lede { color: var(--color-muted); max-width: 46rem; margin-bottom: var(--space-4); }
+
+  .cards {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-3);
+  }
+  .cards li {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-top: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .cards h3 { font-size: var(--text-base); color: var(--color-ink); margin-bottom: var(--space-2); }
+  .cards p { color: var(--color-muted); font-size: var(--text-base); }
+
+  .impact {
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+    border-left: 4px solid var(--color-accent);
+    padding-left: var(--space-3);
+    max-width: 52rem;
+  }
+  .impact strong { color: var(--color-accent-dark); }
+
+  @media (max-width: 860px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+</style>
