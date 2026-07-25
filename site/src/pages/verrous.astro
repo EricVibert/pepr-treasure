@@ -1,0 +1,251 @@
+---
+// Page « Les verrous identifiés » — synthèse des verrous scientifiques de TREASURE.
+// Contenu fourni par le propriétaire (2026-07-24), résumé pour le web.
+import Base from '../layouts/Base.astro';
+
+// Regroupement éditorial (aide à la lecture) des verrous par domaine.
+const domaines = [
+  { nom: 'Immunologie & suivi', nums: [1, 2, 3, 4, 7] },
+  { nom: 'Organes & préservation', nums: [5, 6] },
+  { nom: 'Technologies & essais cliniques', nums: [8, 9] },
+  { nom: 'Enjeux humains & économiques', nums: [10] },
+];
+
+const verrous = [
+  {
+    n: 1,
+    titre: 'Mécanismes de tolérance immunitaire et de rejet',
+    texte: 'Les mécanismes de la tolérance (acceptation de l’organe) et du rejet restent partiellement élucidés, ce qui freine les thérapies ciblées permettant d’éviter une immunosuppression à vie.',
+    reponse: 'Immunologie approfondie, modèles de transplantation avancés et criblage à haut débit pour identifier de nouvelles cibles.',
+  },
+  {
+    n: 2,
+    titre: 'Biomarqueurs non invasifs pour le monitoring',
+    texte: 'Il manque des biomarqueurs non invasifs validés pour détecter précocement le rejet et les complications ; on dépend encore de biopsies invasives.',
+    reponse: 'Outils moléculaires et génétiques avancés + études longitudinales à grande échelle, en multi-institutions.',
+  },
+  {
+    n: 3,
+    titre: 'Rejet chronique et survie du greffon à long terme',
+    texte: 'Le rejet chronique, mal compris, demeure une cause majeure de perte du greffon à long terme.',
+    reponse: 'Études au long cours, imagerie avancée et profilage immunologique des patients dans le temps.',
+  },
+  {
+    n: 4,
+    titre: 'Immunosuppression individualisée',
+    texte: 'Les réponses aux médicaments immunosuppresseurs varient fortement d’un patient à l’autre, compliquant leur gestion.',
+    reponse: 'Modèles prédictifs et bases de données robustes des réponses, vers une médecine personnalisée.',
+  },
+  {
+    n: 5,
+    titre: 'Logistique du prélèvement et lésions d’ischémie-reperfusion',
+    texte: 'Les lésions d’ischémie-reperfusion, lors de la revascularisation, altèrent les résultats de la greffe.',
+    reponse: 'Optimiser la logistique du prélèvement (PMO) et les machines de perfusion, et améliorer l’appariement anatomique donneur/receveur.',
+  },
+  {
+    n: 6,
+    titre: 'Organes et tissus bio-artificiels fonctionnels',
+    texte: 'L’ingénierie d’organes et de tissus augmentés en est encore à ses débuts, alors qu’elle pourrait pallier la pénurie d’organes.',
+    reponse: 'Bio-impression de pointe, matériaux innovants et protocoles de différenciation cellulaire robustes.',
+  },
+  {
+    n: 7,
+    titre: 'Complications liées à l’immunosuppression',
+    texte: 'Les greffés sont vulnérables aux infections, cancers, événements cardiovasculaires et troubles métaboliques induits par l’immunosuppression.',
+    reponse: 'Comprendre les interactions traitement / système immunitaire / pathogènes et coopérer avec d’autres programmes pour maîtriser ces risques.',
+  },
+  {
+    n: 8,
+    titre: 'Intégration des technologies avancées (IA, numérique)',
+    texte: 'L’intégration de l’IA, de l’apprentissage automatique et des outils numériques reste complexe à adopter en pratique, malgré leur potentiel.',
+    reponse: 'Capitaliser sur des travaux de référence, y compris sur la dimension « adoption ».',
+  },
+  {
+    n: 9,
+    titre: 'Essais cliniques robustes en transplantation',
+    texte: 'Concevoir et conduire des essais solides est difficile (variabilité des patients, enjeux éthiques, durée).',
+    reponse: 'Accélérer les inclusions, mobiliser jumeaux numériques et algorithmes prédictifs, et collaborer chercheurs / régulateurs / associations de patients.',
+  },
+  {
+    n: 10,
+    titre: 'Limites sociologiques, éthiques et économiques',
+    texte: 'Les analyses existantes doivent être approfondies pour éclairer les décisions publiques (tarifs, parcours de soins, valeur des services).',
+    reponse: 'Associer étroitement les associations de patients à la définition des priorités.',
+  },
+];
+---
+
+<Base
+  title="Les verrous identifiés — PEPR TREASURE"
+  description="Les verrous scientifiques que le PEPR TREASURE entend lever : tolérance et rejet, biomarqueurs, préservation des organes, immunosuppression, technologies, essais cliniques, enjeux éthiques et économiques."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE</p>
+    <h1>Les verrous identifiés</h1>
+    <p class="lede">
+      TREASURE a identifié une série de verrous scientifiques majeurs, pour
+      lesquels le programme doit apporter des éléments de réponse. En voici une
+      synthèse, regroupée par grand domaine.
+    </p>
+  </section>
+
+  <!-- Schéma : panorama des verrous par domaine -->
+  <section class="schema" aria-label="Panorama des verrous par domaine">
+    <div class="hub">Verrous scientifiques<span>TREASURE</span></div>
+    <div class="domaines">
+      {domaines.map((d) => (
+        <div class="domaine">
+          <h3>{d.nom}</h3>
+          <div class="nums">
+            {d.nums.map((n) => <a class="num-chip" href={`#v${n}`}>{n}</a>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Détail des verrous -->
+  <section class="block">
+    <ul class="verrous">
+      {verrous.map((v) => (
+        <li id={`v${v.n}`}>
+          <span class="num">{v.n}</span>
+          <div class="v-body">
+            <h3>{v.titre}</h3>
+            <p class="v-texte">{v.texte}</p>
+            <p class="v-reponse"><span>Réponse TREASURE</span> {v.reponse}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-4) 0 var(--space-2); max-width: 48rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    color: var(--color-accent);
+    margin-bottom: var(--space-3);
+  }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); }
+
+  /* Schéma */
+  .schema {
+    margin-top: var(--space-4);
+    display: grid;
+    gap: var(--space-3);
+    justify-items: center;
+  }
+  .hub {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: var(--text-lg);
+    text-align: center;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    line-height: 1.2;
+  }
+  .hub span {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    opacity: 0.85;
+    margin-top: 0.2rem;
+  }
+  .domaines {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-3);
+    position: relative;
+  }
+  .domaine {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-top: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .domaine h3 {
+    font-size: var(--text-base);
+    color: var(--color-ink);
+    margin-bottom: var(--space-2);
+  }
+  .nums { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+  .num-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-weight: 800;
+    font-size: var(--text-sm);
+    text-decoration: none;
+  }
+  .num-chip:hover { background: var(--color-accent); color: #fff; }
+
+  /* Détail */
+  .block { margin-top: var(--space-5); }
+  .verrous { list-style: none; display: grid; gap: var(--space-3); }
+  .verrous li {
+    display: flex;
+    gap: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+    scroll-margin-top: 90px;
+  }
+  .verrous .num {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 800;
+  }
+  .v-body h3 { font-size: var(--text-lg); color: var(--color-accent-dark); margin-bottom: var(--space-2); }
+  .v-texte { color: var(--color-ink); margin-bottom: var(--space-2); }
+  .v-reponse { color: var(--color-muted); font-size: var(--text-base); }
+  .v-reponse span {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: var(--text-sm);
+    margin-right: 0.35rem;
+  }
+
+  @media (max-width: 860px) {
+    .domaines { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 520px) {
+    .domaines { grid-template-columns: 1fr; }
+    .verrous li { flex-direction: column; }
+  }
+</style>
