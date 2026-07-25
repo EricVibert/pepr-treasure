@@ -104,8 +104,9 @@ img {
   color: var(--color-muted);
   margin-right: auto;
 }
-.topbar .funders-logo { height: 34px; width: auto; }
+.topbar .funders-logo { height: 32px; width: auto; }
 .topbar .funders-logo[alt="France 2030"] { height: 42px; }
+.topbar .funders-logo--inserm { height: 40px; }
 
 @media (max-width: 560px) {
   .topbar-inner { justify-content: center; gap: var(--space-3); }
