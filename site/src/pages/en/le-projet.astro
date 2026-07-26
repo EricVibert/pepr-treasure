@@ -1,0 +1,38 @@
+---
+// "The project at a glance" page (English).
+import Base from '../../layouts/Base.astro';
+import SchemaProjet from '../../components/SchemaProjet.astro';
+---
+
+<Base
+  title="The project at a glance — PEPR TREASURE"
+  description="An overview of PEPR TREASURE: the seven work packages, from data infrastructures (WP1) to ethics and education (WP7)."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE</p>
+    <h1>The project at a glance</h1>
+    <p class="lede">
+      Seven complementary work packages, from data infrastructures to ethics
+      and education.
+    </p>
+  </section>
+
+  <section class="block">
+    <SchemaProjet lang="en" />
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-4) 0 var(--space-2); max-width: 46rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); color: var(--color-accent); margin-bottom: var(--space-3); }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); }
+  .block { margin-top: var(--space-4); }
+</style>

@@ -1,0 +1,256 @@
+---
+// PEPR TREASURE home page (English).
+import Base from '../../layouts/Base.astro';
+
+const organs = [
+  'Kidney', 'Liver', 'Heart', 'Lung', 'Trachea', 'Islets', 'Composite tissues',
+];
+
+const axes = [
+  'Linking and leveraging transplantation data',
+  'Artificial intelligence & predictive models',
+  'Perfusion machines & regional hubs',
+  'New biomarkers and diagnostic platforms',
+  'Advanced immune-monitoring tools',
+  'Harmonised workflows for collaborative research',
+];
+
+const objectives = [
+  {
+    stat: '+15%',
+    text: 'more successful transplants, by optimising organ allocation and preservation with predictive AI models and ex-situ perfusion machines.',
+  },
+  {
+    stat: '+20 / +40%',
+    text: 'more tracheal transplants (+20%) and pancreatic islet transplants (+40%).',
+  },
+  {
+    stat: '−50%',
+    text: 'fewer invasive procedures (biopsies of the transplanted organ) with no therapeutic impact.',
+  },
+  {
+    stat: '30%',
+    text: 'of “rejection” diagnoses reclassified through precision immunology (molecular and digital microscopy).',
+  },
+  {
+    stat: '20 centres',
+    text: 'at least, equipped with digital precision-diagnosis tools before and after transplantation — the “AI transplant clinic”.',
+  },
+];
+---
+
+<Base
+  title="PEPR TREASURE — Organ transplantation"
+  description="TREASURE (Transplantation, REgeneration And preservation of OrganS) — the Priority Research Programme dedicated to organ transplantation, funded by France 2030 and led by Inserm."
+>
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <p class="eyebrow">France&nbsp;2030 · Inserm — Health Research Programmes Agency</p>
+        <h1>PEPR TREASURE</h1>
+        <p class="expand">Transplantation, REgeneration And preservation of OrganS</p>
+        <p class="lede">
+          The Priority Research Programme and Equipment dedicated to organ
+          transplantation. Our ambition: to significantly improve transplant
+          outcomes through a unique approach that unites France’s entire
+          transplantation community — across all organs.
+        </p>
+        <ul class="chips" aria-label="Organs covered">
+          {organs.map((o) => <li>{o}</li>)}
+        </ul>
+      </div>
+      <div class="hero-medallion">
+        <img src="/logo-treasure.png" alt="PEPR TREASURE logo" width="573" height="460" />
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>A unified, multidisciplinary approach</h2>
+    <p>
+      TREASURE brings together researchers, clinicians, engineers, medical and
+      surgical specialties, anaesthetist-intensivists, biologists, immunologists
+      and pathologists — as well as learned societies, hospitals, public
+      institutions, patient associations and industry partners in pharma and
+      MedTech. The goal: to create new infrastructures and cutting-edge
+      technologies that transform how transplants are performed, monitored and
+      evaluated.
+    </p>
+  </section>
+
+  <section class="block">
+    <h2>2025–2030 objectives</h2>
+    <p class="block-lede">
+      Five clinical objectives over five years, driven by the programme’s
+      research infrastructures.
+    </p>
+    <ul class="objectifs">
+      {objectives.map((o) => (
+        <li>
+          <span class="stat">{o.stat}</span>
+          <span class="stat-text">{o.text}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Our areas of innovation</h2>
+    <ul class="axes">
+      {axes.map((a) => <li>{a}</li>)}
+    </ul>
+  </section>
+
+  <p class="soon"><span class="dot" aria-hidden="true"></span> Site under construction — the full programme is coming soon.</p>
+</Base>
+
+<style>
+  .hero {
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+    margin-top: calc(-1 * var(--space-5));
+    margin-bottom: var(--space-5);
+    padding: var(--space-5) var(--space-4);
+    background:
+      radial-gradient(120% 140% at 85% 10%, rgba(255,255,255,0.10), rgba(255,255,255,0) 55%),
+      linear-gradient(135deg, rgba(15,90,55,0.93) 0%, rgba(23,134,79,0.82) 55%, rgba(15,90,55,0.94) 100%),
+      url('/hero-bg.jpg') center / cover no-repeat;
+    color: #fff;
+  }
+  .hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-5);
+  }
+  .hero-text { max-width: 40rem; }
+
+  .hero .eyebrow { color: #bfe6cf; }
+  .hero h1 { color: #ffffff; }
+  .hero .expand { color: #eaf6ee; }
+  .hero .lede { color: rgba(255, 255, 255, 0.92); }
+  .hero .chips li {
+    background: rgba(255, 255, 255, 0.16);
+    color: #ffffff;
+  }
+
+  .hero-medallion {
+    width: 440px;
+    height: 440px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+    flex: 0 0 auto;
+  }
+  .hero-medallion img { width: 74%; height: auto; }
+
+  @media (max-width: 820px) {
+    .hero { padding: var(--space-4) var(--space-3); }
+    .hero-inner {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      text-align: center;
+      gap: var(--space-4);
+    }
+    .hero-medallion { order: -1; width: 280px; height: 280px; }
+    .hero .chips { justify-content: center; }
+    .hero-text { max-width: 100%; }
+    .hero h1 { font-size: clamp(2rem, 9vw, 3.2rem); }
+    .hero .expand { font-size: var(--text-base); }
+  }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-2);
+    margin-bottom: var(--space-4);
+  }
+  .hero h1 {
+    font-size: clamp(2.75rem, 8vw, 5rem);
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-2);
+  }
+  .expand {
+    font-size: var(--text-lg);
+    font-weight: 600;
+    color: var(--color-ink);
+    margin-bottom: var(--space-3);
+  }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); max-width: 40rem; }
+
+  .chips {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+  }
+  .chips li {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .block { max-width: 46rem; margin-top: var(--space-5); }
+  .block h2 { color: var(--color-accent); margin-bottom: var(--space-3); }
+  .block p { color: var(--color-ink); }
+  .block-lede { color: var(--color-muted); margin-bottom: var(--space-4); }
+
+  .objectifs { list-style: none; display: grid; gap: var(--space-3); }
+  .objectifs li {
+    display: flex;
+    align-items: baseline;
+    gap: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .objectifs .stat {
+    flex: 0 0 auto;
+    min-width: 6.5rem;
+    font-size: var(--text-xl);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--color-accent-2);
+  }
+  .objectifs .stat-text { color: var(--color-ink); }
+  @media (max-width: 560px) {
+    .objectifs li { flex-direction: column; gap: var(--space-1); }
+    .objectifs .stat { font-size: var(--text-lg); }
+  }
+
+  .axes { list-style: none; display: grid; gap: var(--space-2); }
+  .axes li { position: relative; padding-left: 1.4rem; color: var(--color-ink); }
+  .axes li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.6em;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: var(--color-accent-2);
+  }
+
+  .soon {
+    margin-top: var(--space-5);
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-sm);
+    color: var(--color-muted);
+  }
+  .dot { width: 0.5rem; height: 0.5rem; border-radius: 50%; background: var(--color-accent); }
+</style>

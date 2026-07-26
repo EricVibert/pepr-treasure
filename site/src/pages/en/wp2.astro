@@ -1,0 +1,188 @@
+---
+// Work Package 2 — Augmented organ perfusion (English).
+import Base from '../../layouts/Base.astro';
+
+const axes = [
+  {
+    num: '1',
+    titre: 'Digital platform for multi-organ procurement',
+    texte: 'Today, procurement information often passes by phone or by hand, leading to data loss. WP2 is developing a digital platform to centralise, coordinate and automate all data (anaesthesia, timings, assessment): real-time organ tracking, remote adjustment of perfusion parameters, integration of new sensors, and direct feeding of the WP1 database.',
+  },
+  {
+    num: '2',
+    titre: 'Shared perfusion hubs',
+    texte: 'The use of perfusion machines (hypothermic or normothermic) is not yet uniform in France and requires specialised expertise. The project is evaluating regional “hubs” (modelled on PRISME in Île-de-France), pooling machines and qualified staff across several hospitals — to optimise logistics, better repair organs before transplantation, and serve as sites of innovation and training.',
+  },
+];
+
+const inMachina = [
+  {
+    titre: 'Drug treatments on isolated organs',
+    texte: 'On explanted livers or surgical specimens (Liver4Life prototype), test direct therapeutic strategies, in particular against hepatocellular carcinoma and colorectal metastases.',
+  },
+  {
+    titre: 'New imaging tools and biomarkers',
+    texte: 'Deploy breakthrough technologies to assess organs in the machine: real-time mass spectrometry, hyperspectral imaging, confocal endomicroscopy, ultrafast ultrasound.',
+  },
+  {
+    titre: 'Repairing marginal grafts',
+    texte: 'Through mathematical modelling and biochemical analysis, stratify an organ’s viability to “repair” and safely use grafts initially deemed too fragile.',
+  },
+];
+---
+
+<Base
+  title="Work Package 2 — Augmented organ perfusion"
+  description="PEPR TREASURE WP2: improving perfusion technologies to preserve, test and regenerate organs between retrieval and transplantation — procurement platform, perfusion hubs and long-duration normothermic perfusion (In Machina)."
+>
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">PEPR TREASURE · Work Package 2</p>
+      <h1>Augmented organ perfusion</h1>
+      <p class="subtitle">Graft pathway and organ perfusion</p>
+      <p class="lede">
+        WP2 improves <strong>perfusion</strong> technologies to preserve, test
+        and regenerate organs between retrieval and transplantation. The goal:
+        to increase organ quality and longevity, expand the donor pool and
+        contribute to the overall target of <strong>+15% transplants</strong>.
+      </p>
+      <ul class="chips" aria-label="Organs concerned">
+        <li>Liver</li><li>Heart</li><li>Lung</li><li>Kidney</li>
+      </ul>
+    </div>
+    <div class="hero-logo">
+      <img src="/logo-wp2.png" alt="Work Package 2 logo" width="1409" height="1417" />
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Axes and objectives</h2>
+    <ul class="axes-cards">
+      {axes.map((a) => (
+        <li>
+          <span class="num">{a.num}</span>
+          <div class="v-body">
+            <h3>{a.titre}</h3>
+            <p>{a.texte}</p>
+          </div>
+        </li>
+      ))}
+
+      <li class="feature">
+        <span class="num">3</span>
+        <div class="v-body">
+          <h3>The “In Machina” project — Long-duration normothermic perfusion</h3>
+          <p>
+            Keep organs in near-physiological conditions for several days, up to
+            two weeks — opening the way to genuine therapies on the isolated
+            organ. Three sub-objectives:
+          </p>
+          <ul class="sub">
+            {inMachina.map((s) => (
+              <li>
+                <h4>{s.titre}</h4>
+                <p>{s.texte}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Expected impact</h2>
+    <p class="impact">
+      By better understanding the physiopathology of organs outside the body and
+      optimising their transport (including from France’s overseas territories),
+      WP2 considerably expands transplantation possibilities. Viability data from
+      perfused organs will feed the algorithms of the future AI clinic
+      (<strong>WP6</strong>) and pave the way for bio-artificial organs
+      (<strong>WP3</strong>) or organs from genetically modified animals.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding: var(--space-4) 0 var(--space-3);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-5);
+  }
+  .hero-text { max-width: 40rem; }
+  .hero-logo img { width: 300px; max-width: 36vw; height: auto; border-radius: var(--radius-lg); }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.01em; color: var(--color-accent); margin-bottom: var(--space-2); }
+  .subtitle { font-size: var(--text-lg); font-weight: 600; color: var(--color-ink); margin-bottom: var(--space-3); }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); max-width: 40rem; }
+  .lede strong { color: var(--color-ink); }
+
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+  .chips li {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .block { margin-top: var(--space-5); }
+  .block h2 { color: var(--color-accent); margin-bottom: var(--space-4); }
+
+  .axes-cards { list-style: none; display: grid; gap: var(--space-3); }
+  .axes-cards > li {
+    display: flex;
+    gap: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .axes-cards .num {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 800;
+  }
+  .v-body h3 { font-size: var(--text-lg); color: var(--color-accent-dark); margin-bottom: var(--space-2); }
+  .v-body > p { color: var(--color-ink); }
+  .feature { background: var(--color-accent-soft) !important; }
+
+  .sub { list-style: none; display: grid; gap: var(--space-2); margin-top: var(--space-3); }
+  .sub li { background: var(--color-surface); border: 1px solid var(--color-line); border-radius: var(--radius); padding: var(--space-3); }
+  .sub h4 { color: var(--color-ink); font-size: var(--text-base); margin-bottom: var(--space-1); }
+  .sub p { color: var(--color-muted); font-size: var(--text-base); }
+
+  .impact {
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+    border-left: 4px solid var(--color-accent);
+    padding-left: var(--space-3);
+    max-width: 52rem;
+  }
+  .impact strong { color: var(--color-accent-dark); }
+
+  @media (max-width: 780px) {
+    .hero { grid-template-columns: 1fr; gap: var(--space-4); }
+    .hero-logo img { width: 220px; max-width: 70%; }
+  }
+  @media (max-width: 520px) { .axes-cards > li { flex-direction: column; } }
+</style>

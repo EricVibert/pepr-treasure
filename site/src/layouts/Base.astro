@@ -1,6 +1,7 @@
 ---
 // Shared shell for every page: head, header, footer.
-// Nav lives here and only here; adding a page means adding one link below.
+// Bilingue : le français est la langue par défaut (racine), l'anglais vit sous /en/.
+// La langue est déduite de l'URL ; chaque page FR a une page EN au même slug sous /en/.
 import '../../../source/brand/tokens.css';
 import '../styles/site.css';
 
@@ -11,18 +12,30 @@ interface Props {
 
 const { title, description } = Astro.props;
 
+// Détection de langue à partir de l'URL.
+const rawPath = Astro.url.pathname;
+const isEn = rawPath === '/en' || rawPath.startsWith('/en/');
+const lang = isEn ? 'en' : 'fr';
+
+// URLs équivalentes dans l'autre langue (mêmes slugs, préfixe /en).
+const stripEn = (p: string) => {
+  const s = p.replace(/^\/en(?=\/|$)/, '');
+  return s === '' ? '/' : s;
+};
+const frUrl = isEn ? stripEn(rawPath) : rawPath;
+const enUrl = isEn ? rawPath : '/en' + (rawPath === '/' ? '/' : rawPath);
+
 // Onglet actif : on normalise le chemin (avec/sans slash final).
-const path = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const path = rawPath.replace(/\/+$/, '') || '/';
 const norm = (href: string) => href.replace(/\/+$/, '') || '/';
-// Un onglet peut être actif sur plusieurs routes (ex. « Work packages » couvre /wp*).
 const isActive = (item: { href: string; activeOn?: string[] }) => {
   if (norm(item.href) === path) return true;
   return (item.activeOn ?? []).some((p) => path === p || path.startsWith(p));
 };
 
-// Personalized during setup.
 const siteName = 'PEPR TREASURE';
-const nav: { href: string; label: string; activeOn?: string[] }[] = [
+
+const navFR: { href: string; label: string; activeOn?: string[] }[] = [
   { href: '/', label: 'Accueil' },
   { href: '/equipe', label: 'Équipe / COPIL' },
   { href: '/le-projet', label: 'Le projet' },
@@ -30,15 +43,27 @@ const nav: { href: string; label: string; activeOn?: string[] }[] = [
   { href: '/work-packages', label: 'Work packages', activeOn: ['/wp'] },
   { href: '/actualites', label: 'Actualités' },
 ];
+const navEN: { href: string; label: string; activeOn?: string[] }[] = [
+  { href: '/en/', label: 'Home' },
+  { href: '/en/equipe', label: 'Team / Steering' },
+  { href: '/en/le-projet', label: 'The project' },
+  { href: '/en/verrous', label: 'Challenges' },
+  { href: '/en/work-packages', label: 'Work packages', activeOn: ['/en/wp'] },
+  { href: '/en/actualites', label: 'News' },
+];
+const nav = isEn ? navEN : navFR;
+const homeHref = isEn ? '/en/' : '/';
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <link rel="alternate" hreflang="fr" href={frUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
@@ -56,22 +81,29 @@ const nav: { href: string; label: string; activeOn?: string[] }[] = [
     </div>
     <header class="site-header">
       <div class="header-inner">
-        <a class="brand" href="/" aria-label={siteName}>
+        <a class="brand" href={homeHref} aria-label={siteName}>
           <img src="/logo-treasure.png" alt={siteName} width="120" height="96" />
         </a>
-        {nav.length > 0 && (
-          <nav class="tabs">
-            {nav.map((item) => (
-              <a
-                href={item.href}
-                class={isActive(item) ? 'tab is-active' : 'tab'}
-                aria-current={isActive(item) ? 'page' : undefined}
-              >
-                {item.label}
-              </a>
-            ))}
-          </nav>
-        )}
+        <div class="header-right">
+          {nav.length > 0 && (
+            <nav class="tabs">
+              {nav.map((item) => (
+                <a
+                  href={item.href}
+                  class={isActive(item) ? 'tab is-active' : 'tab'}
+                  aria-current={isActive(item) ? 'page' : undefined}
+                >
+                  {item.label}
+                </a>
+              ))}
+            </nav>
+          )}
+          <div class="lang" aria-label="Choix de la langue">
+            <a href={frUrl} class={lang === 'fr' ? 'on' : ''} aria-current={lang === 'fr' ? 'true' : undefined}>FR</a>
+            <span aria-hidden="true">/</span>
+            <a href={enUrl} class={lang === 'en' ? 'on' : ''} aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+          </div>
+        </div>
       </div>
     </header>
     <main>

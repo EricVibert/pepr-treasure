@@ -1,0 +1,217 @@
+---
+// "Scientific challenges" page (English).
+import Base from '../../layouts/Base.astro';
+
+const domains = [
+  { name: 'Immunology & monitoring', nums: [1, 2, 3, 4, 7] },
+  { name: 'Organs & preservation', nums: [5, 6] },
+  { name: 'Technologies & clinical trials', nums: [8, 9] },
+  { name: 'Human & economic issues', nums: [10] },
+];
+
+const challenges = [
+  {
+    n: 1,
+    title: 'Mechanisms of immune tolerance and rejection',
+    text: 'The mechanisms of tolerance (acceptance of the organ) and of rejection remain only partly understood, which hampers targeted therapies that could induce tolerance while avoiding lifelong immunosuppression.',
+    response: 'In-depth immunology, advanced transplantation models and high-throughput screening to identify new therapeutic targets.',
+  },
+  {
+    n: 2,
+    title: 'Non-invasive biomarkers for patient monitoring',
+    text: 'There is a lack of validated non-invasive biomarkers to detect rejection and complications early; care still relies on invasive biopsies.',
+    response: 'Advanced molecular and genetic tools together with large-scale, multi-institution longitudinal studies.',
+  },
+  {
+    n: 3,
+    title: 'Chronic rejection and long-term graft survival',
+    text: 'Chronic rejection, still poorly understood, remains a leading cause of long-term graft loss.',
+    response: 'Long-term studies, advanced imaging and immune profiling of patients over time.',
+  },
+  {
+    n: 4,
+    title: 'Individualised immunosuppression',
+    text: 'Patient responses to immunosuppressive drugs vary widely, making their management complex.',
+    response: 'Predictive models and robust databases of patient responses, towards personalised medicine.',
+  },
+  {
+    n: 5,
+    title: 'Procurement logistics and ischaemia-reperfusion injury',
+    text: 'Ischaemia-reperfusion injury, occurring when the organ is revascularised, can degrade transplant outcomes.',
+    response: 'Optimise organ-retrieval logistics and perfusion machines, and improve donor/recipient anatomical matching.',
+  },
+  {
+    n: 6,
+    title: 'Functional bio-artificial organs and tissues',
+    text: 'Engineering augmented organs and tissues is still in its early stages, yet could relieve the organ shortage.',
+    response: 'Cutting-edge bioprinting, innovative materials and robust cell-differentiation protocols.',
+  },
+  {
+    n: 7,
+    title: 'Complications of immunosuppression',
+    text: 'Transplant recipients are vulnerable to infections, cancers, cardiovascular events and metabolic disorders induced by immunosuppression.',
+    response: 'Understand the interactions between treatment, immune system and pathogens, and cooperate with other programmes to control these risks.',
+  },
+  {
+    n: 8,
+    title: 'Integrating advanced technologies (AI, digital)',
+    text: 'Integrating AI, machine learning and digital health tools remains complex to adopt in practice, despite their potential.',
+    response: 'Build on reference work, including the “adoption” dimension.',
+  },
+  {
+    n: 9,
+    title: 'Robust clinical trials in transplantation',
+    text: 'Designing and running robust trials is difficult (patient variability, ethical issues, duration).',
+    response: 'Accelerate enrolment, use digital twins and predictive algorithms, and foster close collaboration between researchers, regulators and patient associations.',
+  },
+  {
+    n: 10,
+    title: 'Sociological, ethical and economic limits',
+    text: 'Existing analyses need to be deepened to inform public decisions (pricing, care pathways, value of services).',
+    response: 'Closely involve patient associations in setting priorities.',
+  },
+];
+---
+
+<Base
+  title="Scientific challenges — PEPR TREASURE"
+  description="The scientific challenges PEPR TREASURE aims to address: tolerance and rejection, biomarkers, organ preservation, immunosuppression, technologies, clinical trials, ethical and economic issues."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE</p>
+    <h1>Scientific challenges</h1>
+    <p class="lede">
+      TREASURE has identified a series of major scientific challenges that the
+      programme aims to address. Here is an overview, grouped by domain.
+    </p>
+  </section>
+
+  <section class="schema" aria-label="Overview of challenges by domain">
+    <div class="hub">Scientific challenges<span>TREASURE</span></div>
+    <div class="domaines">
+      {domains.map((dm) => (
+        <div class="domaine">
+          <h3>{dm.name}</h3>
+          <div class="nums">
+            {dm.nums.map((n) => <a class="num-chip" href={`#v${n}`}>{n}</a>)}
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="block">
+    <ul class="verrous">
+      {challenges.map((v) => (
+        <li id={`v${v.n}`}>
+          <span class="num">{v.n}</span>
+          <div class="v-body">
+            <h3>{v.title}</h3>
+            <p class="v-texte">{v.text}</p>
+            <p class="v-reponse"><span>TREASURE response</span> {v.response}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-4) 0 var(--space-2); max-width: 48rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); color: var(--color-accent); margin-bottom: var(--space-3); }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); }
+
+  .schema { margin-top: var(--space-4); display: grid; gap: var(--space-3); justify-items: center; }
+  .hub {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: var(--text-lg);
+    text-align: center;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    line-height: 1.2;
+  }
+  .hub span { font-size: var(--text-sm); font-weight: 600; letter-spacing: 0.1em; opacity: 0.85; margin-top: 0.2rem; }
+  .domaines { width: 100%; display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-3); }
+  .domaine {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-top: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .domaine h3 { font-size: var(--text-base); color: var(--color-ink); margin-bottom: var(--space-2); }
+  .nums { display: flex; flex-wrap: wrap; gap: var(--space-1); }
+  .num-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.9rem;
+    height: 1.9rem;
+    border-radius: 50%;
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-weight: 800;
+    font-size: var(--text-sm);
+    text-decoration: none;
+  }
+  .num-chip:hover { background: var(--color-accent); color: #fff; }
+
+  .block { margin-top: var(--space-5); }
+  .verrous { list-style: none; display: grid; gap: var(--space-3); }
+  .verrous li {
+    display: flex;
+    gap: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+    scroll-margin-top: 90px;
+  }
+  .verrous .num {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 800;
+  }
+  .v-body h3 { font-size: var(--text-lg); color: var(--color-accent-dark); margin-bottom: var(--space-2); }
+  .v-texte { color: var(--color-ink); margin-bottom: var(--space-2); }
+  .v-reponse { color: var(--color-muted); font-size: var(--text-base); }
+  .v-reponse span {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--color-accent);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-size: var(--text-sm);
+    margin-right: 0.35rem;
+  }
+
+  @media (max-width: 860px) { .domaines { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 520px) {
+    .domaines { grid-template-columns: 1fr; }
+    .verrous li { flex-direction: column; }
+  }
+</style>

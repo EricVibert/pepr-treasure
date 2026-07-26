@@ -1,0 +1,150 @@
+---
+// Work Packages 4 & 5 — Precision diagnostics & AI (English).
+import Base from '../../layouts/Base.astro';
+
+const tags = ['Liquid biopsy (cfDNA)', 'Molecular profiling', 'Deep Learning', 'Digital twins'];
+
+const wp4 = [
+  {
+    titre: 'Non-invasive biomarkers (liquid biopsy)',
+    texte: 'Assess the potential of cell-free circulating DNA (cfDNA) in blood as a universal, early indicator of injury to the transplanted organ.',
+  },
+  {
+    titre: 'Molecular biopsy (mRNA profiling)',
+    texte: 'Using a specific gene panel (B-HOT), detect signatures linked to rejection, tissue injury or viral infections (BKV, CMV, EBV) to refine conventional histology diagnoses.',
+  },
+  {
+    titre: 'Digital biopsy and spatial profiling',
+    texte: 'Objectively quantify lesions with Deep Learning and, through digital spatial profiling, map the distribution of genes and immune cells directly on biopsies — a cell-level reading of the immune response.',
+  },
+];
+---
+
+<Base
+  title="Work Packages 4 & 5 — Precision diagnostics & artificial intelligence"
+  description="PEPR TREASURE WP4 and WP5: WP4 produces high-precision biological and diagnostic data; WP5 leverages it through AI for predictive and prognostic clinical tools and digital twins."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE · Work Packages 4 &amp; 5</p>
+    <h1>Precision diagnostics &amp; artificial intelligence</h1>
+    <p class="lede">
+      WP4 and WP5 work in <strong>close synergy</strong>: WP4 generates
+      high-precision biological and diagnostic data, which WP5 leverages through
+      <strong>artificial intelligence</strong> to design predictive and
+      prognostic clinical tools.
+    </p>
+    <ul class="chips" aria-label="Keywords">
+      {tags.map((t) => <li>{t}</li>)}
+    </ul>
+  </section>
+
+  <section class="block wp">
+    <div class="wp-head">
+      <span class="wp-tag">WP4</span>
+      <h2>High-precision biological data</h2>
+    </div>
+    <p class="wp-lede">
+      Push the limits of graft-disease assessment and anticipate rejection,
+      while reducing the need for invasive biopsies.
+    </p>
+    <ul class="cards">
+      {wp4.map((c) => (
+        <li>
+          <h3>{c.titre}</h3>
+          <p>{c.texte}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="block wp">
+    <div class="wp-head">
+      <span class="wp-tag">WP5</span>
+      <h2>Interpretation through artificial intelligence</h2>
+    </div>
+    <p class="wp-lede">
+      WP5 leverages WP4’s assays, biomarkers and tissue data through
+      machine-learning models supporting patient monitoring. These predictive
+      models — graft allocation, rejection scores, digital twins — form the core
+      of the <strong>AI transplant clinic</strong>.
+    </p>
+    <a class="wp-link" href="/en/wp6">Discover WP6 — AI clinic →</a>
+  </section>
+
+  <section class="block">
+    <h2>In summary</h2>
+    <p class="impact">
+      By combining <strong>WP4</strong>’s unprecedented analytical resolution
+      with <strong>WP5</strong>’s AI predictive power, TREASURE aims to transform
+      post-transplant care: replacing reactive follow-up with
+      <strong>personalised, anticipatory and far less invasive</strong> medicine.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-4) 0 var(--space-2); max-width: 52rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 { font-size: clamp(1.9rem, 4.5vw, 2.9rem); color: var(--color-accent); margin-bottom: var(--space-3); }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); }
+  .lede strong { color: var(--color-ink); }
+
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+  .chips li {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .block { margin-top: var(--space-5); }
+  .wp-head { display: flex; align-items: center; gap: var(--space-3); margin-bottom: var(--space-2); }
+  .wp-tag {
+    display: inline-flex;
+    align-items: center;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 800;
+    font-size: var(--text-sm);
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0.7rem;
+    border-radius: var(--radius);
+  }
+  .block h2 { color: var(--color-accent); }
+  .wp-lede { color: var(--color-muted); max-width: 48rem; margin-bottom: var(--space-3); }
+  .wp-lede strong { color: var(--color-ink); }
+  .wp-link { display: inline-block; font-weight: 700; color: var(--color-accent); text-decoration: none; }
+  .wp-link:hover { color: var(--color-accent-dark); text-decoration: underline; }
+
+  .cards { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3); }
+  .cards li {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-top: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .cards h3 { font-size: var(--text-base); color: var(--color-ink); margin-bottom: var(--space-2); }
+  .cards p { color: var(--color-muted); font-size: var(--text-base); }
+
+  .impact {
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+    border-left: 4px solid var(--color-accent);
+    padding-left: var(--space-3);
+    max-width: 52rem;
+  }
+  .impact strong { color: var(--color-accent-dark); }
+
+  @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+</style>

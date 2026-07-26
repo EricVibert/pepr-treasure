@@ -1,71 +1,164 @@
 ---
 // Schéma d'ensemble du projet TREASURE (WP1 → WP7), recréé en vert.
 // Reprend la structure de la figure officielle du programme.
-const wp1 = [
-  'Dossiers de santé électroniques',
-  'Registres & entrepôts de données',
-  'Plateformes biologie & immunologie (EFS, CRB, labos HLA)',
-  'Biocollection',
-  'Collections de tissus',
-  'Stockage cloud & capacités de calcul',
-  'Intégration des données de tarification',
-];
-const wp23 = [
-  'Perfusion augmentée d’organes',
-  'Perfusion normothermique longue durée & évaluation innovante',
-  'Greffons cliniquement augmentés (îlots pancréatiques, trachée)',
-];
-const wp4 = [
-  'Monitoring immunitaire : ADN, ARN, métabolites, protéines, cellules, anticorps',
-  'Diagnostics fondés sur le tissu du greffon',
-  'Éviter les biopsies inutiles',
-  'Diagnostics fondés sur la pathogenèse',
-  'Découverte de cibles thérapeutiques',
-  'Thérapies mécanistiquement informées',
-];
-const wp5 = [
-  'Stratification du risque',
-  'Automatisation du diagnostic de rejet',
-  'Adaptation des thérapies (minimisation, intensification)',
-  'Réponse au traitement',
-];
-const organes = [
-  'Élargir le vivier d’organes de donneurs',
-  'Améliorer le reconditionnement des organes transplantables',
-  'Systèmes avancés d’évaluation de la viabilité et de la fonction',
-];
-const medecins = [
-  'Prédiction par biomarqueurs non invasifs',
-  'Microscope numérique & moléculaire',
-  'Diagnostics automatisés',
-  'Pronostic patient (perte du greffon, décès, infection, cancer, événements CV)',
-];
-const copilote = [
-  'Télésurveillance',
-  'Chatbot fondé sur un LLM',
-  'Soin centré sur le patient',
-  'Objets connectés (IoT)',
-];
-const essais = [
-  'Essais cliniques virtualisés',
-  'Critères de substitution numériques',
-  'Découverte & repositionnement de médicaments par IA',
-  'Jumeaux numériques',
-];
-const wp7 = [
-  'Intégration des dimensions éthiques & réglementaires',
-  'Barrières financières & santé fondée sur la valeur',
-  'Formation des futurs spécialistes de la greffe',
-  'Campagnes de sensibilisation & ateliers pratiques',
-  'Communication renforcée avec les associations patients/donneurs',
-  'Évaluation de l’empreinte écologique des greffes',
-];
+const { lang = 'fr' } = Astro.props;
+
+const DATA = {
+  fr: {
+    h: {
+      wp1: 'Data lake multi-organes & cohortes phénotypées',
+      wp23: 'Préservation, ingénierie tissulaire & greffes augmentées',
+      wp4: 'Biomarqueurs non invasifs & tissulaires',
+      wp5: 'Diagnostic & pronostic par IA',
+      wp6: 'La première clinique IA de la transplantation',
+      wp7: 'Éthique, diffusion & formation',
+      organes: 'Organes augmentés',
+      medecins: 'Médecins augmentés',
+      copilote: 'Copilote IA du patient',
+      essais: 'Essais cliniques augmentés',
+    },
+    wp1: [
+      'Dossiers de santé électroniques',
+      'Registres & entrepôts de données',
+      'Plateformes biologie & immunologie (EFS, CRB, labos HLA)',
+      'Biocollection',
+      'Collections de tissus',
+      'Stockage cloud & capacités de calcul',
+      'Intégration des données de tarification',
+    ],
+    wp23: [
+      'Perfusion augmentée d’organes',
+      'Perfusion normothermique longue durée & évaluation innovante',
+      'Greffons cliniquement augmentés (îlots pancréatiques, trachée)',
+    ],
+    wp4: [
+      'Monitoring immunitaire : ADN, ARN, métabolites, protéines, cellules, anticorps',
+      'Diagnostics fondés sur le tissu du greffon',
+      'Éviter les biopsies inutiles',
+      'Diagnostics fondés sur la pathogenèse',
+      'Découverte de cibles thérapeutiques',
+      'Thérapies mécanistiquement informées',
+    ],
+    wp5: [
+      'Stratification du risque',
+      'Automatisation du diagnostic de rejet',
+      'Adaptation des thérapies (minimisation, intensification)',
+      'Réponse au traitement',
+    ],
+    organes: [
+      'Élargir le vivier d’organes de donneurs',
+      'Améliorer le reconditionnement des organes transplantables',
+      'Systèmes avancés d’évaluation de la viabilité et de la fonction',
+    ],
+    medecins: [
+      'Prédiction par biomarqueurs non invasifs',
+      'Microscope numérique & moléculaire',
+      'Diagnostics automatisés',
+      'Pronostic patient (perte du greffon, décès, infection, cancer, événements CV)',
+    ],
+    copilote: [
+      'Télésurveillance',
+      'Chatbot fondé sur un LLM',
+      'Soin centré sur le patient',
+      'Objets connectés (IoT)',
+    ],
+    essais: [
+      'Essais cliniques virtualisés',
+      'Critères de substitution numériques',
+      'Découverte & repositionnement de médicaments par IA',
+      'Jumeaux numériques',
+    ],
+    wp7: [
+      'Intégration des dimensions éthiques & réglementaires',
+      'Barrières financières & santé fondée sur la valeur',
+      'Formation des futurs spécialistes de la greffe',
+      'Campagnes de sensibilisation & ateliers pratiques',
+      'Communication renforcée avec les associations patients/donneurs',
+      'Évaluation de l’empreinte écologique des greffes',
+    ],
+  },
+  en: {
+    h: {
+      wp1: 'Multi-organ data lake & deeply phenotyped cohorts',
+      wp23: 'Preservation, tissue engineering & augmented transplants',
+      wp4: 'Non-invasive & tissue biomarkers',
+      wp5: 'AI-based diagnosis & prognosis',
+      wp6: 'The first AI transplant clinic',
+      wp7: 'Ethics, dissemination & education',
+      organes: 'Augmented organs',
+      medecins: 'Augmented physicians',
+      copilote: 'AI patient copilot',
+      essais: 'Augmented clinical trials',
+    },
+    wp1: [
+      'Electronic health records',
+      'Registries & data warehouses',
+      'Biology & immunology platforms (EFS, CRB, HLA labs)',
+      'Biocollection',
+      'Tissue collections',
+      'Cloud storage & computing capacity',
+      'Medical-fees data integration',
+    ],
+    wp23: [
+      'Augmented organ perfusion',
+      'Long-duration normothermic perfusion & innovative evaluation',
+      'Clinically augmented grafts (pancreatic islets, trachea)',
+    ],
+    wp4: [
+      'Immune monitoring: DNA, RNA, metabolites, proteins, cells, antibodies',
+      'Allograft tissue-based diagnostics',
+      'Avoiding futile biopsies',
+      'Pathogenesis-based diagnostics',
+      'Therapeutic target discovery',
+      'Mechanistically informed therapeutics',
+    ],
+    wp5: [
+      'Risk stratification',
+      'Automated rejection diagnostics',
+      'Therapy adaptation (minimisation, intensification)',
+      'Response to therapy',
+    ],
+    organes: [
+      'Increasing the pool of donor organs',
+      'Enhancing the reconditioning of transplantable organs',
+      'Advanced systems to assess viability and function',
+    ],
+    medecins: [
+      'Non-invasive biomarker prediction',
+      'Digital & molecular microscope',
+      'Automated diagnostics',
+      'Patient prognostication (graft loss, death, infection, cancer, CV events)',
+    ],
+    copilote: [
+      'Remote monitoring',
+      'LLM-based chatbot',
+      'Patient-centred care',
+      'Connected devices (IoT)',
+    ],
+    essais: [
+      'Virtualised clinical trials',
+      'Digital surrogate endpoints',
+      'AI-based drug discovery & repurposing',
+      'Digital twins',
+    ],
+    wp7: [
+      'Integration of ethical & regulatory dimensions',
+      'Financial barriers & value-based healthcare',
+      'Training future transplant specialists',
+      'Public awareness campaigns & practical workshops',
+      'Enhanced communication with patient/donor associations',
+      'Assessing the ecological footprint of transplantation',
+    ],
+  },
+};
+const d = DATA[lang] ?? DATA.fr;
+const { wp1, wp23, wp4, wp5, organes, medecins, copilote, essais, wp7, h } = d;
 ---
 
 <div class="schema">
   <!-- WP1 -->
   <section class="box">
-    <header><span class="code">WP1</span> Data lake multi-organes & cohortes phénotypées</header>
+    <header><span class="code">WP1</span> {h.wp1}</header>
     <ul class="row">
       {wp1.map((i) => <li>{i}</li>)}
     </ul>
@@ -74,45 +167,45 @@ const wp7 = [
   <!-- WP2&3 / WP4 / WP5 -->
   <div class="cols3">
     <section class="box">
-      <header><span class="code">WP2 &amp; 3</span> Préservation, ingénierie tissulaire & greffes augmentées</header>
+      <header><span class="code">WP2 &amp; 3</span> {h.wp23}</header>
       <ul class="list">{wp23.map((i) => <li>{i}</li>)}</ul>
     </section>
     <section class="box">
-      <header><span class="code">WP4</span> Biomarqueurs non invasifs & tissulaires</header>
+      <header><span class="code">WP4</span> {h.wp4}</header>
       <ul class="list">{wp4.map((i) => <li>{i}</li>)}</ul>
     </section>
     <section class="box">
-      <header><span class="code">WP5</span> Diagnostic & pronostic par IA</header>
+      <header><span class="code">WP5</span> {h.wp5}</header>
       <ul class="list">{wp5.map((i) => <li>{i}</li>)}</ul>
     </section>
   </div>
 
   <!-- WP6 -->
   <section class="box">
-    <header><span class="code">WP6</span> La première clinique IA de la transplantation</header>
+    <header><span class="code">WP6</span> {h.wp6}</header>
     <div class="cols3 inner">
       <div class="subcard">
-        <h4>Organes augmentés</h4>
+        <h4>{h.organes}</h4>
         <ul class="list">{organes.map((i) => <li>{i}</li>)}</ul>
       </div>
       <div class="subcard">
-        <h4>Médecins augmentés</h4>
+        <h4>{h.medecins}</h4>
         <ul class="list">{medecins.map((i) => <li>{i}</li>)}</ul>
       </div>
       <div class="subcard">
-        <h4>Copilote IA du patient</h4>
+        <h4>{h.copilote}</h4>
         <ul class="list">{copilote.map((i) => <li>{i}</li>)}</ul>
       </div>
     </div>
     <div class="subband">
-      <h4>Essais cliniques augmentés</h4>
+      <h4>{h.essais}</h4>
       <ul class="row light">{essais.map((i) => <li>{i}</li>)}</ul>
     </div>
   </section>
 
   <!-- WP7 -->
   <section class="box">
-    <header><span class="code">WP7</span> Éthique, diffusion & formation</header>
+    <header><span class="code">WP7</span> {h.wp7}</header>
     <ul class="row three">{wp7.map((i) => <li>{i}</li>)}</ul>
   </section>
 </div>

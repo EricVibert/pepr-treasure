@@ -1,0 +1,163 @@
+---
+// Work Package 7 — SSH (Social Sciences and Humanities), English.
+import Base from '../../layouts/Base.astro';
+
+const tags = ['Post-mortem donation', 'Ethics', 'Interdisciplinary', 'Participatory'];
+
+const axes = [
+  {
+    num: '1',
+    titre: 'Trust, acceptance, refusal and opposition',
+    texte: 'Understand the contemporary drivers of people’s relationship to donation, without reducing distrust to a mere lack of information.',
+  },
+  {
+    num: '2',
+    titre: 'Organisations and donor pathways',
+    texte: 'Analyse donation pathways by combining medical effectiveness, economic efficiency, ethical acceptability and psychological sustainability.',
+  },
+  {
+    num: '3',
+    titre: 'Ethics of innovation',
+    texte: 'Anticipate the transformations of donation and transplantation medicine, questioning their conditions of legitimacy, trust and acceptability.',
+  },
+];
+---
+
+<Base
+  title="Work Package 7 — The donor as a research subject"
+  description="PEPR TREASURE WP7 SSH: donation, and post-mortem donation in particular, as a subject of research in the social sciences and humanities — an interdisciplinary, independent and participatory research space."
+>
+  <section class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">PEPR TREASURE · Work Package 7 — SSH</p>
+      <h1>The donor as a research subject</h1>
+      <p class="lede">
+        WP7 SSH chooses to start from the <strong>donor</strong> — and
+        specifically from <strong>post-mortem donation</strong> — as a subject of
+        research in the social sciences and humanities. Without setting recipients
+        aside, it focuses on the link without which transplantation would not be
+        possible.
+      </p>
+      <ul class="chips" aria-label="Keywords">
+        {tags.map((t) => <li>{t}</li>)}
+      </ul>
+    </div>
+    <div class="hero-logo">
+      <img src="/logo-wp7.png" alt="Work Package 7 — SSH logo" width="1254" height="1254" />
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>An interdisciplinary and independent research space</h2>
+    <p>
+      At the heart of the work is analysing, without oversimplifying, the tension
+      between respect for the person at the end of life, support for their loved
+      ones, the experience of the caregivers who look after them, and the
+      imperative of solidarity towards patients awaiting a transplant.
+    </p>
+    <p>
+      The ambition is to build an <strong>interdisciplinary, independent and
+      rigorous</strong> research space, bringing together health sciences, social
+      sciences and humanities, institutions, associations, user representatives
+      and international partners. The goal: to produce new knowledge — to
+      describe, understand, analyse and shed light on practices, organisations,
+      lived experiences and controversies.
+    </p>
+  </section>
+
+  <section class="block">
+    <h2>Three areas of work</h2>
+    <ul class="axes-cards">
+      {axes.map((a) => (
+        <li>
+          <span class="num">{a.num}</span>
+          <h3>{a.titre}</h3>
+          <p>{a.texte}</p>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="block">
+    <p class="closing">
+      The work begins: building methods, prioritising projects, producing new
+      data and making WP7 a lasting space for <strong>critical, interdisciplinary
+      and participatory</strong> research.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    padding: var(--space-4) 0 var(--space-3);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: var(--space-5);
+  }
+  .hero-text { max-width: 40rem; }
+  .hero-logo img { width: 300px; max-width: 36vw; height: auto; border-radius: var(--radius-lg); }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.01em; color: var(--color-accent); margin-bottom: var(--space-3); }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); max-width: 40rem; }
+  .lede strong { color: var(--color-ink); }
+
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+  .chips li {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .block { max-width: 52rem; margin-top: var(--space-5); }
+  .block h2 { color: var(--color-accent); margin-bottom: var(--space-3); }
+  .block p { color: var(--color-ink); }
+  .block p strong { color: var(--color-accent-dark); }
+
+  .axes-cards { list-style: none; display: grid; gap: var(--space-3); grid-template-columns: repeat(3, 1fr); max-width: none; }
+  .axes-cards li {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-top: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .axes-cards .num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-weight: 800;
+    margin-bottom: var(--space-2);
+  }
+  .axes-cards h3 { color: var(--color-ink); font-size: var(--text-base); margin-bottom: var(--space-2); }
+  .axes-cards p { color: var(--color-muted); font-size: var(--text-base); }
+
+  .closing {
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+    border-left: 4px solid var(--color-accent);
+    padding-left: var(--space-3);
+  }
+
+  @media (max-width: 900px) { .axes-cards { grid-template-columns: 1fr; } }
+  @media (max-width: 780px) {
+    .hero { grid-template-columns: 1fr; gap: var(--space-4); }
+    .hero-logo img { width: 220px; max-width: 70%; }
+  }
+</style>

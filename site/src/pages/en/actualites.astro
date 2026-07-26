@@ -1,0 +1,120 @@
+---
+// News page (English).
+import Base from '../../layouts/Base.astro';
+
+const news = [
+  {
+    date: '2025',
+    dateLabel: '2025',
+    title: 'TREASURE, one of three new strategic programmes of the Health Research Programmes Agency',
+    text:
+      'The French State has entrusted three new strategic programmes — including TREASURE, dedicated to transplantation — to the Health Research Programmes Agency led by Inserm, funded under France 2030 (€49.5M in total). TREASURE aims to transform clinical practice by combining artificial intelligence and innovative biotechnologies to optimise graft quality, predict rejection and reduce invasive examinations, with the ambition of deploying an “AI-augmented transplant clinic”.',
+    link: 'https://presse.inserm.fr/trois-nouveaux-programmes-strategiques-confies-a-lagence-de-programmes-de-recherche-en-sante-pilotee-par-linserm/71545/',
+    source: 'Inserm press room',
+  },
+];
+---
+
+<Base
+  title="News — PEPR TREASURE"
+  description="PEPR TREASURE news: events, advances, webinars and announcements from the programme."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE</p>
+    <h1>News</h1>
+    <p class="lede">Events, advances and announcements from the programme.</p>
+  </section>
+
+  <section class="block">
+    {news.length === 0 ? (
+      <div class="empty">
+        <p>Programme news will be published here soon.</p>
+      </div>
+    ) : (
+      <ul class="news">
+        {news.map((a) => (
+          <li>
+            <time datetime={a.date}>{a.dateLabel}</time>
+            <h2>{a.title}</h2>
+            <p>{a.text}</p>
+            {a.link && <a class="more" href={a.link} target="_blank" rel="noopener">{a.source ? `Read on ${a.source} →` : 'Learn more →'}</a>}
+          </li>
+        ))}
+      </ul>
+    )}
+
+    <aside class="linkedin-cta">
+      <div>
+        <h2>Follow PEPR TREASURE on LinkedIn</h2>
+        <p>All our announcements, events and advances in real time on our LinkedIn page.</p>
+      </div>
+      <a class="li-btn" href="https://www.linkedin.com/company/pepr-treasure/posts/?feedView=all" target="_blank" rel="noopener">
+        Visit our LinkedIn page →
+      </a>
+    </aside>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-4) 0 var(--space-2); max-width: 46rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); color: var(--color-accent); margin-bottom: var(--space-3); }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); }
+
+  .block { margin-top: var(--space-4); }
+  .empty {
+    background: var(--color-surface);
+    border: 1px dashed var(--color-line);
+    border-radius: var(--radius);
+    padding: var(--space-5) var(--space-4);
+    text-align: center;
+    color: var(--color-muted);
+  }
+
+  .news { list-style: none; display: grid; gap: var(--space-3); }
+  .news li {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .news time { display: block; font-size: var(--text-sm); font-weight: 700; color: var(--color-accent); letter-spacing: 0.02em; margin-bottom: var(--space-1); }
+  .news h2 { font-size: var(--text-lg); color: var(--color-accent-dark); margin-bottom: var(--space-2); }
+  .news p { color: var(--color-ink); }
+  .news .more { display: inline-block; margin-top: var(--space-2); font-weight: 700; color: var(--color-accent); text-decoration: none; }
+  .news .more:hover { text-decoration: underline; }
+
+  .linkedin-cta {
+    margin-top: var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    background: var(--color-accent-soft);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+  }
+  .linkedin-cta h2 { color: var(--color-accent-dark); font-size: var(--text-lg); margin-bottom: var(--space-1); }
+  .linkedin-cta p { color: var(--color-muted); }
+  .li-btn {
+    flex: 0 0 auto;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius);
+  }
+  .li-btn:hover { background: var(--color-accent-dark); }
+</style>

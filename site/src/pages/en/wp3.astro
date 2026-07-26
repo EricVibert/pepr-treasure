@@ -1,0 +1,154 @@
+---
+// Work Package 3 — Augmented tissue and organ transplants (English).
+import Base from '../../layouts/Base.astro';
+
+const tags = ['Pancreatic islets', 'Bio-artificial tracheas', 'Regenerative medicine', 'Immunomodulation'];
+
+const axes = [
+  {
+    num: '1',
+    titre: 'Fighting diabetes with pancreatic islets',
+    texte: 'Islet transplantation restores insulin production in type 1 diabetes, but these grafts are often destroyed by stress and the immune system. WP3 will optimise their isolation and create “stealth” islets that resist these attacks. More innovatively: integrating these cells directly into a liver or kidney during machine perfusion (with WP2) to create “islet-augmented organs” before transplantation.',
+  },
+  {
+    num: '2',
+    titre: 'Bio-artificial tracheas and tissues',
+    texte: 'Building on French successes in tracheal reconstruction from aortic tissue (TRITON protocols), WP3 will develop the next generation of bio-engineered airways — microfabrication, biological matrices and growth factors for vascularisation. Other augmented tissues will be produced (blood vessels, 3D membranes for the retina…).',
+  },
+  {
+    num: '3',
+    titre: 'Immunomodulation to prevent rejection',
+    texte: 'To promote graft acceptance, the project will develop innovative cell therapies — notably the “Eight Treg” protocol: harvesting, purifying and expanding a patient’s regulatory immune cells, then re-administering them to temper the patient’s own immune response.',
+  },
+  {
+    num: '4',
+    titre: 'Human-scale preclinical models',
+    texte: 'To bridge the gap between rodents and human clinical reality, WP3 will test these augmented grafts on large preclinical models, with INRAE and veterinary schools. They better simulate complex human diseases and comorbidities, reducing the risk of failure, costs and time before human trials.',
+  },
+];
+---
+
+<Base
+  title="Work Package 3 — Augmented tissue and organ transplants"
+  description="PEPR TREASURE WP3: combining innovative cells and materials to repair or enhance grafts — pancreatic islets, bio-artificial tracheas, immunomodulation and human-scale preclinical models."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE · Work Package 3</p>
+    <h1>Augmented tissue and organ transplants</h1>
+    <p class="lede">
+      WP3 develops new techniques combining <strong>innovative cells and
+      materials</strong> to repair or enhance grafts, in order to relieve the
+      organ shortage and improve transplant success.
+    </p>
+    <div class="stats">
+      <div class="stat"><span class="num">+20%</span> more tracheal transplants</div>
+      <div class="stat"><span class="num">+40%</span> more pancreatic islet transplants</div>
+    </div>
+    <ul class="chips" aria-label="Keywords">
+      {tags.map((t) => <li>{t}</li>)}
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Axes and innovations</h2>
+    <ul class="axes-cards">
+      {axes.map((a) => (
+        <li>
+          <span class="badge">{a.num}</span>
+          <div class="v-body">
+            <h3>{a.titre}</h3>
+            <p>{a.texte}</p>
+          </div>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Expected impact</h2>
+    <p class="impact">
+      These advances will enable large-scale, cost-effective bioproduction,
+      strengthening France’s leadership in <strong>biotherapies</strong> and
+      <strong>regenerative medicine</strong>, while making these innovative
+      transplants accessible to a broad public.
+    </p>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-4) 0 var(--space-2); max-width: 50rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); color: var(--color-accent); margin-bottom: var(--space-3); }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); }
+  .lede strong { color: var(--color-ink); }
+
+  .stats { display: flex; flex-wrap: wrap; gap: var(--space-3); margin-top: var(--space-4); }
+  .stat {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-2) var(--space-3);
+    box-shadow: var(--shadow);
+    color: var(--color-ink);
+    font-weight: 600;
+  }
+  .stat .num { display: block; font-size: var(--text-xl); font-weight: 800; color: var(--color-accent); line-height: 1.1; }
+
+  .chips { list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-4); }
+  .chips li {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+  }
+
+  .block { margin-top: var(--space-5); }
+  .block h2 { color: var(--color-accent); margin-bottom: var(--space-4); }
+
+  .axes-cards { list-style: none; display: grid; gap: var(--space-3); }
+  .axes-cards li {
+    display: flex;
+    gap: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-left: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .axes-cards .badge {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 800;
+  }
+  .v-body h3 { font-size: var(--text-lg); color: var(--color-accent-dark); margin-bottom: var(--space-2); }
+  .v-body p { color: var(--color-ink); }
+
+  .impact {
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+    border-left: 4px solid var(--color-accent);
+    padding-left: var(--space-3);
+    max-width: 52rem;
+  }
+  .impact strong { color: var(--color-accent-dark); }
+
+  @media (max-width: 520px) { .axes-cards li { flex-direction: column; } }
+</style>

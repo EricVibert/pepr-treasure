@@ -1,0 +1,188 @@
+---
+// Team / Steering committee (COPIL) page (English).
+import Base from '../../layouts/Base.astro';
+
+const members = [
+  {
+    nom: 'Agnès Audier',
+    photo: '/copil/audier.jpg',
+    initiales: 'AA',
+    linkedin: 'https://www.linkedin.com/in/agn%C3%A8s-audier-b747771/',
+    role: 'Co-lead of PEPR TREASURE',
+    affiliation: 'Senior Advisor, Boston Consulting Group (BCG) · expert, Institut Montaigne',
+    resume: 'A graduate of the École normale supérieure and Sciences Po, and a chief mining engineer. Her career spans the public and private sectors: ministerial cabinets (Health, SMEs & Trade), strategy and operations leadership at Vivendi and then Havas, before joining BCG in 2007. A board member of major listed groups, she specialises in digital and societal issues, particularly in healthcare.',
+  },
+  {
+    nom: 'Pr Guillaume Coutance',
+    photo: '/copil/coutance.jpg',
+    initiales: 'GC',
+    linkedin: 'https://www.linkedin.com/in/guillaume-coutance-1a3b9a45/',
+    role: 'Steering committee member',
+    affiliation: 'Cardiac surgery & transplantation, AP-HP (Pitié-Salpêtrière / HEGP)',
+    resume: 'A specialist in advanced heart failure and heart transplantation at Pitié-Salpêtrière, home to Europe’s largest cardiac transplant programme. He leads research on heart transplantation with the Paris Transplant Group (Inserm PARCC), notably on graft allocation and acute and chronic rejection.',
+  },
+  {
+    nom: 'Pr Nassim Kamar',
+    photo: '/copil/kamar.jpg',
+    initiales: 'NK',
+    linkedin: 'https://www.linkedin.com/in/nassim-kamar-7a7a4817/',
+    role: 'Steering committee member',
+    affiliation: 'Nephrology & organ transplantation, Toulouse University Hospital (Rangueil)',
+    resume: 'A nephrologist, head of the nephrology and organ transplantation department and transplant coordinator at Toulouse University Hospital — France’s leading centre for kidney transplantation in recent years. A clinician and researcher, he is deeply involved in research on kidney transplantation and immunosuppression.',
+  },
+  {
+    nom: 'Dr Hannah Kaminski',
+    photo: '/copil/kaminski.jpg',
+    initiales: 'HK',
+    linkedin: 'https://www.linkedin.com/in/hannah-kaminski-30b298210/',
+    role: 'Steering committee member',
+    affiliation: 'Nephrology–kidney transplantation, Bordeaux University Hospital (Pellegrin) · University of Bordeaux, CNRS UMR 5164 ImmunoConcEpT',
+    resume: 'A hospital practitioner in nephrology and kidney transplantation at Bordeaux University Hospital and a lecturer-researcher (University of Bordeaux, ImmunoConcEpT laboratory). She coordinates the European HORUS consortium (Horizon Europe, €7M, 2021–2027), studying host–cytomegalovirus (CMV) interactions in solid organ transplantation.',
+  },
+  {
+    nom: 'Dr Fanny Lebossé',
+    photo: '/copil/lebosse.jpg',
+    initiales: 'FL',
+    role: 'Steering committee member',
+    affiliation: 'Hepatology & liver transplantation, Hospices Civils de Lyon (Croix-Rousse Hospital)',
+    resume: 'A hepatologist (associate professor–hospital practitioner) at the Hospices Civils de Lyon, specialising in liver diseases and liver transplantation. A researcher at the Cancer Research Centre of Lyon (CRCL), she works in particular on acute-on-chronic liver failure (ACLF) and transplant indications.',
+  },
+  {
+    nom: 'Pr Alexandre Loupy',
+    photo: '/copil/loupy.jpg',
+    initiales: 'AL',
+    linkedin: 'https://www.linkedin.com/in/alexandre-loupy-b76ba7/',
+    role: 'Co-lead of PEPR TREASURE',
+    affiliation: 'Nephrology & epidemiology, Université Paris Cité / Inserm (PARCC) · director of the Paris Transplant Group (PITOR)',
+    resume: 'A nephrologist, professor at Université Paris Cité and director of the Paris Transplant Group (PITOR Institute, PARCC – Inserm). He designed and validated iBox, an AI-based digital biomarker that predicts graft survival and the efficacy of immunosuppression, now deployed across more than 35,000 patients and some forty centres on four continents. He is an ERC Consolidator Grant laureate.',
+  },
+  {
+    nom: 'Pr Éric Vibert',
+    photo: '/copil/vibert.jpg',
+    initiales: 'EV',
+    linkedin: 'https://www.linkedin.com/in/eric-vibert-md-phd-iko-bab30469/',
+    role: 'Co-lead of PEPR TREASURE',
+    affiliation: 'Hepato-Biliary Centre, Paul-Brousse Hospital (AP-HP) · Paris-Saclay University',
+    resume: 'A surgeon, surgical director of liver transplantation at the Hepato-Biliary Centre of Paul-Brousse Hospital (AP-HP) and professor at Paris-Saclay University. Founder of the BOPA, BOPEx and BOPTech operating-room innovation programmes, he is a co-lead of PEPR TREASURE.',
+  },
+  {
+    nom: 'Pr François Pattou',
+    photo: '/copil/pattou.jpg',
+    initiales: 'FP',
+    linkedin: 'https://www.linkedin.com/in/francois-pattou-b13301212/',
+    role: 'Co-lead of PEPR TREASURE',
+    affiliation: 'General & endocrine surgery, Lille University Hospital · University of Lille / Inserm U1190 (EGID)',
+    resume: 'A surgeon, professor of general surgery at the University of Lille and head of the general and endocrine surgery department at Lille University Hospital. A world pioneer of pancreatic islet transplantation in type 1 diabetes (Inserm U1190 – EGID, Institut Pasteur de Lille): Lille University Hospital was the first French centre to perform routine islet-of-Langerhans transplants (2021).',
+  },
+];
+---
+
+<Base
+  title="Team / Steering committee — PEPR TREASURE"
+  description="The steering committee (COPIL) of PEPR TREASURE: the people who lead and guide the programme."
+>
+  <section class="hero">
+    <p class="eyebrow">PEPR TREASURE</p>
+    <h1>Steering committee</h1>
+    <p class="lede">
+      The steering committee brings together the people who lead and guide the
+      TREASURE programme.
+    </p>
+  </section>
+
+  <section class="block">
+    <ul class="members">
+      {members.map((m) => (
+        <li>
+          {m.photo
+            ? <img class="avatar" src={m.photo} alt={`Portrait of ${m.nom}`} width="440" height="440" loading="lazy" />
+            : <div class="avatar avatar--initiales" aria-hidden="true">{m.initiales}</div>}
+          <div class="m-body">
+            <h2>{m.nom}</h2>
+            <p class="role">{m.role}</p>
+            <p class="affil">{m.affiliation}</p>
+            <p class="resume">{m.resume}</p>
+            <p class="links">
+              <a
+                class="link-btn"
+                href={`https://scholar.google.com/scholar?q=${encodeURIComponent(m.nom.replace(/^(Pr|Dr)\s+/, ''))}`}
+                target="_blank"
+                rel="noopener"
+              >Publications (Google Scholar)</a>
+              {m.linkedin && (
+                <a class="link-btn" href={m.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+              )}
+            </p>
+          </div>
+        </li>
+      ))}
+    </ul>
+    <p class="note">Biographies compiled from public sources — to be completed and validated with the individuals.</p>
+  </section>
+</Base>
+
+<style>
+  .hero { padding: var(--space-4) 0 var(--space-2); max-width: 46rem; }
+  .eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: var(--text-sm);
+    font-weight: 700;
+    color: var(--color-accent-dark);
+    margin-bottom: var(--space-3);
+  }
+  .hero h1 { font-size: clamp(2rem, 5vw, 3rem); color: var(--color-accent); margin-bottom: var(--space-3); }
+  .lede { font-size: var(--text-lg); color: var(--color-muted); }
+
+  .block { margin-top: var(--space-4); }
+  .members { list-style: none; display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3); }
+  .members li {
+    display: flex;
+    gap: var(--space-3);
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-top: 4px solid var(--color-accent);
+    border-radius: var(--radius);
+    padding: var(--space-3);
+    box-shadow: var(--shadow);
+  }
+  .avatar {
+    flex: 0 0 auto;
+    width: 4.25rem;
+    height: 4.25rem;
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--color-accent-soft);
+    border: 2px solid var(--color-accent-soft);
+  }
+  .avatar--initiales {
+    background: var(--color-accent);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: var(--text-lg);
+  }
+  .m-body h2 { font-size: var(--text-lg); color: var(--color-accent-dark); margin-bottom: 0.15rem; }
+  .role { font-weight: 700; color: var(--color-accent); font-size: var(--text-sm); margin-bottom: 0.15rem; }
+  .affil { color: var(--color-muted); font-size: var(--text-sm); margin-bottom: var(--space-2); }
+  .resume { color: var(--color-ink); font-size: var(--text-base); }
+  .links { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
+  .link-btn {
+    display: inline-flex;
+    align-items: center;
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+  }
+  .link-btn:hover { background: var(--color-accent); color: #fff; }
+
+  .note { margin-top: var(--space-4); color: var(--color-muted); font-size: var(--text-sm); font-style: italic; }
+
+  @media (max-width: 700px) { .members { grid-template-columns: 1fr; } }
+</style>
