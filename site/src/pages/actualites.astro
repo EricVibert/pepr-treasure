@@ -33,7 +33,7 @@ const actualites = [
         <p>Les actualités du programme seront publiées ici prochainement.</p>
       </div>
     ) : (
-      <ul class="news">
+      <ul class="news is-list">
         {actualites.map((a) => (
           <li>
             <time datetime={a.date}>{a.dateLabel}</time>
@@ -44,6 +44,16 @@ const actualites = [
         ))}
       </ul>
     )}
+
+    <aside class="linkedin-cta">
+      <div>
+        <h2>Suivez le PEPR TREASURE sur LinkedIn</h2>
+        <p>Toutes nos annonces, événements et avancées en temps réel sur notre page LinkedIn.</p>
+      </div>
+      <a class="li-btn" href="https://www.linkedin.com/company/pepr-treasure/posts/?feedView=all" target="_blank" rel="noopener">
+        Voir la page LinkedIn →
+      </a>
+    </aside>
   </section>
 </Base>
 
@@ -84,4 +94,29 @@ const actualites = [
   .news p { color: var(--color-ink); }
   .news .more { display: inline-block; margin-top: var(--space-2); font-weight: 700; color: var(--color-accent); text-decoration: none; }
   .news .more:hover { text-decoration: underline; }
+
+  .linkedin-cta {
+    margin-top: var(--space-4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    flex-wrap: wrap;
+    background: var(--color-accent-soft);
+    border: 1px solid var(--color-line);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4);
+  }
+  .linkedin-cta h2 { color: var(--color-accent-dark); font-size: var(--text-lg); margin-bottom: var(--space-1); }
+  .linkedin-cta p { color: var(--color-muted); }
+  .li-btn {
+    flex: 0 0 auto;
+    background: var(--color-accent);
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius);
+  }
+  .li-btn:hover { background: var(--color-accent-dark); }
 </style>
