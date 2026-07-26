@@ -4,14 +4,15 @@
 import Base from '../layouts/Base.astro';
 
 const actualites = [
-  // Exemple de format (à remplir) :
-  // {
-  //   date: '2026-07-01',
-  //   dateLabel: '1ᵉʳ juillet 2026',
-  //   titre: 'Lancement du programme',
-  //   texte: 'Résumé court de l’actualité…',
-  //   lien: 'https://…', // optionnel
-  // },
+  {
+    date: '2025',
+    dateLabel: '2025',
+    titre: 'TREASURE, l’un des trois nouveaux programmes stratégiques de l’Agence de programmes de recherche en santé',
+    texte:
+      'L’État confie à l’Agence de programmes de recherche en santé, pilotée par l’Inserm, trois nouveaux programmes stratégiques — dont TREASURE, dédié à la transplantation — financés dans le cadre de France 2030 (49,5 M€ au total). TREASURE entend transformer les pratiques cliniques en combinant intelligence artificielle et biotechnologies innovantes pour optimiser la qualité des greffons, prédire le rejet et réduire les examens invasifs, avec l’ambition de déployer une « clinique de la transplantation augmentée par l’IA ».',
+    lien: 'https://presse.inserm.fr/trois-nouveaux-programmes-strategiques-confies-a-lagence-de-programmes-de-recherche-en-sante-pilotee-par-linserm/71545/',
+    source: 'Salle de presse de l’Inserm',
+  },
 ];
 ---
 
@@ -39,7 +40,7 @@ const actualites = [
             <time datetime={a.date}>{a.dateLabel}</time>
             <h2>{a.titre}</h2>
             <p>{a.texte}</p>
-            {a.lien && <a class="more" href={a.lien} target="_blank" rel="noopener">En savoir plus →</a>}
+            {a.lien && <a class="more" href={a.lien} target="_blank" rel="noopener">{a.source ? `Lire sur ${a.source} →` : 'En savoir plus →'}</a>}
           </li>
         ))}
       </ul>
